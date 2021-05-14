@@ -1,0 +1,120 @@
+
+/* 로그인 페이지 */
+
+.Llogo {
+  position : relative;
+  display: flex;
+  top:-8vh;
+}
+
+.Line {
+  position : relative;
+  width: 27vw;
+  height: 30px;
+  background-color: #537f46 ;
+  top : 100px;
+}
+.backwrap {
+    height: 100vh;
+    background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+
+}
+
+.mainform {
+    background-color: white;
+    height: 600px;
+    width: 27vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top : 20vh;
+    border-radius: 20px;
+    align-items: center;
+
+}
+
+.container {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+.authBtns {
+   top : -4vh;
+   position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 20vw;
+  }
+
+.authBtn {
+    margin: 1vw;
+    font-family: 'goldenpier', serif;
+    width: 100%;
+    cursor: pointer;
+    border-top-left-radius : 10px;
+    border-top-right-radius : 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+    padding: 10px 10px;
+    color : white;
+    font-size: 30px;
+    /* font-weight: bold; */
+    text-align: center;
+    background: #537f46 ;
+    cursor: pointer;
+    border:  #28421f;
+
+  }
+
+.authInput {
+    max-width: 320px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: black;
+    
+  }
+  
+  .authSubmit {
+    text-align: center;
+    background: #04aaff;
+    color: white;
+    margin-top: 10;
+    cursor: pointer;
+  }
+
+  .authSwitch {
+    color: #04aaff;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: block;
+    font-size: 12px;
+    text-decoration: underline;
+  }
+
+  .google_log, .github_log{
+    width: 40px;
+    height: 40px;
+  }
+
+ 
