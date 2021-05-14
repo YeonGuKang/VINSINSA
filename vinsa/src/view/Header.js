@@ -18,8 +18,6 @@ const Header = () => {
   const Manager = ['swe0dmffFQcoqpEUJ7fHtXYimEJ3','WFS2QtP4kEN3IWscNXtD1Ciso1t2','8s8IU2fnLPe5q0nIUheiZkwpMOk2','7a2QhDJ4gjbysYsQoFP5QbAIYhz2']
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-    
-
       if (user) {
         setIsLoggedIn(true);
         setUserObj(user);
@@ -34,6 +32,7 @@ const Header = () => {
       }
       setInit(true);
        
+      console.log(user)
     });
     
   }, []);
@@ -55,22 +54,17 @@ const Header = () => {
         </div>
             <div>
                 <ul className={menu.nav}>
-                    <li><Link to="/About_Open">About</Link></li>
-                    <li><Link to="/Recipe">Recipe</Link></li>
-                     <li><Link to= {{
-                       pathname: "/Notice",
-                       state: {
-                         manager: Manager
-                       }
-                     }} >Notice</Link></li>
-                     <li><Link to="/About_Open">Open</Link></li>
+                    <li><Link to="/Category">Category</Link></li>
+                    <li><Link to="/Notice">공지사항</Link></li>
+                     <li><Link to="/Review">리뷰</Link></li>
+                     <li><Link to="/Q&A">Q&A</Link></li>
+                     <li><Link to="/Seller_board">판매자 게시판</Link></li>
                 </ul>
             </div>
        
             <div className={menu.login}>
               {/* 로그인이 되어있는 상태라면 로그아웃 , 아니라면 로그인 버튼을 보여줌 */}
-              {isLoggedIn ?  <Link to="/Checipe">
-                {/* 위에 선언한 로그아웃함수를 클릭했을 때 실행 */}
+              {isLoggedIn ?  <Link to="/">
                    <li onClick={onLogOutClick}>로그아웃</li>
               </Link> : <Link to="/Loginform">
                    <li>로그인</li>
