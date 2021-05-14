@@ -29,7 +29,6 @@ const Loginform = () => {
     });
 
 
-    // 첫 화면에 merge에서 가져온 값을 나타냄
     dbService.collection("user").onSnapshot((snapshot) => {
       const boardArray = snapshot.docs.map((doc) => ({
         id: doc.id,

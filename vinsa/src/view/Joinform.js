@@ -15,6 +15,7 @@ const Joinform = () => {
   const [birth, setbirth] = useState("");
   const [sex, setsex] = useState("");
   const [email, setemail] = useState("");
+  const [state, setstate] = useState("");
   
   // 게시글이 작성되었나 확인
   const [check, setcheck] = useState(false);
@@ -29,7 +30,8 @@ const Joinform = () => {
       name: name,
       birth: birth,
       sex: sex,
-      email: email
+      email: email,
+      state: state
     }
 
     await dbService.collection("user").doc(id).set(data);
@@ -87,6 +89,13 @@ const Joinform = () => {
     setemail(value)
   };
 
+  const onChange_state = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setstate(value)
+  };
+
 
 
       
@@ -110,6 +119,8 @@ const Joinform = () => {
       <input onChange={onChange_sex} type="text"  value={sex}/><br></br>
       이메일<br></br>
       <input onChange={onChange_email} type="email" placeholder="email@gmail.com" value={email}/><br></br>
+      판매자 또는 구매자 입력<br></br>
+      <input onChange={onChange_state} type="text"  value={state}/><br></br>
 
   
   <button onClick={onclick} >
