@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter ,Redirect } from 'react-router-dom';
 
 
 import { authService , dbService } from '../model/firebase';
@@ -14,9 +14,8 @@ let userstate;
 
 const Userinfo = () => {
    
-const [IsManager, setIsManager] = useState(false);
-const [All_info, setAll_info] = useState([]);
-const [My_info, setMy_info] = useState([]);
+    const [check,setcheck] = useState(false);
+const [User_info, setMy_info] = useState([]);
 
 
   useEffect(() => {
@@ -53,33 +52,38 @@ const [My_info, setMy_info] = useState([]);
   }, []);
 
 
+const delete_user = async () =>{
+    if (window.confirm('유저를 삭제하겠습니까 ?')) {
+        // 좋아요에서 해당하는 레시피를 삭제
+        await dbService.collection('user').doc(User_info.id).delete();
+        alert('유저가 성공적으로 삭제되었습니다!')
 
+        setcheck(true)
+
+      }
+}
 
 
 
     return(
         <div className="backwrap">
         <div className="mainform">
-        <li>{My_info.id}</li>
-        <li>{My_info.email}</li>
-        <li>{My_info.birth}</li>
-        <li>{My_info.name}</li>
-        <li>{My_info.sex}</li>
-        <li>{My_info.state}</li>
+        <li>{User_info.id}</li>
+        <li>{User_info.email}</li>
+        <li>{User_info.birth}</li>
+        <li>{User_info.name}</li>
+        <li>{User_info.sex}</li>
+        <li>{User_info.state}</li>
     
        
           <div className="authBtns">
-              {/* <button className="authBtn" onClick={onSocialClick} name="Google">
-             
-                구글 계정으로 계속하기
-              </button>
-              <button className="authBtn" onClick={onSocialClick} name="Github">
-               
-                깃허브 계정으로 계속하기
-              </button> */}
           </div>
      </div>
+     <h1 onClick={delete_user}>유저 삭제</h1>
+     <div>{check ? <Redirect from="/Userinfo" to = '/Myinfo/운영자' />: null}</div>
      </div>
+
+     
 
     );
     

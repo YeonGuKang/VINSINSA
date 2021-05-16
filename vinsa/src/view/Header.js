@@ -87,7 +87,7 @@ const Header = () => {
         
         </div>
             <div>
-            {IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li>}
+            {isLoggedIn ? IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li> : null}
                 <ul className={menu.nav}>
                     <li><Link to="/Category">Category</Link></li>
                     <li><Link to="/Notice">공지사항</Link></li>
