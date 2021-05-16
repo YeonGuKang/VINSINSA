@@ -77,6 +77,7 @@ const [My_info, setMy_info] = useState([]);
         <li>{My_info.birth}</li>
         <li>{My_info.name}</li>
         <li>{My_info.sex}</li>
+        <li>{My_info.address}</li>
         <li>{My_info.state}</li>
     
         {All_info.map((Show)=>(

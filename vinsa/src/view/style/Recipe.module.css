@@ -1,0 +1,248 @@
+
+
+.half_bgs{
+    z-index: 1;
+    position : relative;
+    flex-direction: column;
+    left : 7vw;
+    width : 92vw;
+    height: 85vh;
+    background-color:  #537f46;
+    display : flex;
+}
+
+.Rlogo{
+    position: relative;
+    display : inline;
+    left : 10vw;   
+}
+:root{
+    --text-color: #f0f4f5;
+    --background-color: #28421f;
+    --header-background: #ffffff;
+    --main-color: #537f46;
+}
+.header{
+    position : relative;
+    top : 12vh;
+    display: flex;
+    width : 92vw;
+    height : 8vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-background);
+}
+/* 섹션디폴트는 현재 버튼 클릭 안했을 때 보여지는 진한 초록색 부분임. */
+/* .sectiondefault {
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 100vh;
+    position : relative;
+    top : -20vh;
+    display: flex;
+} */
+
+
+.testing{
+    background-color: red;
+    height: "1000px";
+}
+
+.space { /* 겹치는 여백을 따로 진행한 부분. 난 이거 보고 이해 했을걸*/
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 30vh;
+    position : relative;
+    top : -20vh;
+    display : flex;
+}
+
+.section { 
+    /* 선택 레시피가 나오면 배치되는 영역 */
+    z-index: 1;
+    background-color : var(--background-color);
+    width : 92vw;
+    height : 150%;
+    top : -30vh;
+
+    position : relative;
+    display: inline-flex;
+    
+}
+
+.sectionplace {
+    /* 섹션안에 위치하면서 레시피의 배열을 정해주는 클래스 */
+    position : relative;
+    width : 92vw;
+    margin-top: 1vh;
+    margin-bottom: 15vh;
+    left : 9vw;
+    font-family: 'goldenpier', serif;
+    display : inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+   
+}
+
+
+.result {
+    /* 레시피를 개별로 감싸주는 하얀색 사각형 */
+    padding  : 0.5vw;
+    margin : 1vw;
+    z-index: 2;
+    background-color:white;
+    position : relative;
+    width : 17vw;
+    height : 53vh;
+    border-bottom-right-radius: 40px; 
+    border-bottom-left-radius: 40px; 
+
+   /*틀에 맞춰서 정보를 보여줌 넘치는건 hidden*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   
+}
+
+
+.whiteselect { 
+    /* 사용자가 사용할 버튼이 위치함 (하얀색) */
+    z-index: 1;
+    background-color : white;
+    width : 80vw;
+    height : 45vh;
+    border-top-left-radius : 40px;
+    border-top-right-radius : 40px;
+    border-bottom-right-radius: 40px;
+    position : relative;
+    left : 2vw;
+    bottom : -28vh;
+}
+
+.Rtitle {
+    /* 레시피 이름 */
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    
+}
+
+.Rhash {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.nav{
+    display: flex;
+    padding-left: 0;
+    position : relative;
+    top : 1vh;
+}
+.nav li{
+    font-family: 'goldenpier', serif;
+    font-size : 1.5em;
+    margin-left: 5vw;
+    font-weight: bold;
+    position : relative;
+    right : 6.6vw;
+    top : -1vh;
+}
+.nav li:hover{
+    background-color: var(--main-color);
+    border-radius: 8px;
+}
+.login{
+    font-family: 'goldenpier', serif;
+    font-size : 1.3em;
+    color: black;
+    position : relative;
+    right : 10vw;
+    bottom : 0.2vh;
+    font-weight: bold;
+    
+}
+.menubtn{
+    background-color: black;
+    display: none;
+    width: 24px;
+    height: 24px;
+    color: var(--main-color);
+    position: absolute;
+    right: 20px;
+}
+
+.vegetarianbtn {
+    width : 60vw;
+    position : relative;
+    left : 8vw;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ingredientbtn {
+    width : 47.3vw;
+    position : relative;
+    left: 8vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.vegetarianbtn:hover {
+    cursor: pointer;
+}
+
+.map {
+    font-family: 'goldenpier', serif;
+}
+.page_num {
+    color: black;
+    margin-right: 20px;
+    list-style: none;
+    display : inline-block;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    .nav{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 8px 24px;
+    }
+
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav li {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;    
+    }
+    .login{
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        /* display: none; */
+    }
+    .menubtn{
+        display: block;
+    }
+    /* 로그인 네비바 부분이 활성화 되었을때(클릭 시) */
+    .login.active,
+    .nav.active{
+        display: flex;
+    }
+
+}
+

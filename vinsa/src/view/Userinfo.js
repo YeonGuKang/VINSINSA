@@ -73,6 +73,7 @@ const delete_user = async () =>{
         <li>{User_info.birth}</li>
         <li>{User_info.name}</li>
         <li>{User_info.sex}</li>
+        <li>{User_info.address}</li>
         <li>{User_info.state}</li>
     
        

@@ -15,6 +15,7 @@ const Joinform = () => {
   const [birth, setbirth] = useState("");
   const [sex, setsex] = useState("");
   const [email, setemail] = useState("");
+  const [address, setaddress] = useState("");
   const [state, setstate] = useState("");
   
   // 게시글이 작성되었나 확인
@@ -47,6 +48,7 @@ const Joinform = () => {
       birth: birth,
       sex: sex,
       email: email,
+      address: address,
       state: state
     }
 
@@ -122,6 +124,13 @@ const Joinform = () => {
     setemail(value)
   };
 
+  const onChange_address = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setaddress(value)
+  };
+
   const onChange_state = (event) => {
     const {
       target: { value },
@@ -158,6 +167,9 @@ const Joinform = () => {
 
       이메일<br></br>
       <input onChange={onChange_email} type="email" placeholder="email@gmail.com" value={email}/><br></br>
+
+      주소<br></br>
+      <input onChange={onChange_address} type="text" placeholder="OO시/OO구/OO동/상세주소" value={address}/><br></br>
 
       판매자 / 구매자 입력<br></br>
       <input onChange={onChange_state} type="text"  value={state} maxlength="3"/><br></br>

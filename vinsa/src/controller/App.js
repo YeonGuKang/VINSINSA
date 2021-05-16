@@ -8,6 +8,7 @@ import Loginform from '../view/Loginform';
 import Joinform from '../view/Joinform';
 import Myinfo from '../view/Myinfo';
 import Userinfo from '../view/Userinfo';
+import Seller_board from '../view/Seller_board';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
      <Route path="/Joinform" component = {Joinform} />
      <Route path="/Myinfo" component = {Myinfo} />
      <Route path="/Userinfo" component = {Userinfo} />
+     <Route path="/Seller_board" component = {Seller_board} />
 
   </BrowserRouter>
 
