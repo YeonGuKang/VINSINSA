@@ -37,7 +37,7 @@ const Joinform = () => {
 
 
    // 버튼 클릭이 있을때 게시글을 추가해줌
-   const onclick = async () => {
+   const signUp = async () => {
 
 
     const data = {
@@ -137,30 +137,33 @@ const Joinform = () => {
        <section>
     <h1>회원가입 페이지</h1>
   </section>
+      <br></br>
       ID<br></br>
       <input onChange={onChange_id} type="text" value={id}/>
       &nbsp;<button onClick={id_overlap_check} value="duple"> 중복확인 </button>
-
       <br></br>
+
       비밀번호<br></br>
       <input onChange={onChange_password} type="password"  value={password}/>
       <br></br>
+
       이름  <br></br>
       <input onChange={onChange_name} type="text" value={name}/><br></br>
+
       생년월일<br></br>
-      <input onChange={onChange_birth} type="text"  placeholder="ex)19980611" value={birth}/><br></br>
-      <br></br>
+      <input onChange={onChange_birth} type="text"  placeholder="YYYYMMDD" value={birth} maxlength="8"/><br></br>
+
       성별<br></br>
-      <input onChange={onChange_sex} type="text"  value={sex}/><br></br>
+      <input onChange={onChange_sex} type="text" placeholder="남 / 여" value={sex} maxlength="1"/><br></br>
+
       이메일<br></br>
       <input onChange={onChange_email} type="email" placeholder="email@gmail.com" value={email}/><br></br>
-      판매자 또는 구매자 입력<br></br>
-      <input onChange={onChange_state} type="text"  value={state}/><br></br>
+
+      판매자 / 구매자 입력<br></br>
+      <input onChange={onChange_state} type="text"  value={state} maxlength="3"/><br></br>
 
   
-  <button onClick={onclick} >
-              SIGN UP
-                </button>
+  <button onClick={signUp}>회원가입</button>
 
                 {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
             <div>{check ? <Redirect from="/Joinform" to="/Loginform" /> : null}</div>
