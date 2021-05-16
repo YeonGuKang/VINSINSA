@@ -9,6 +9,7 @@ import Joinform from '../view/Joinform';
 import Myinfo from '../view/Myinfo';
 import Userinfo from '../view/Userinfo';
 import Seller_board from '../view/Seller_board';
+import Regiseter from '../view/Register';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
      <Route path="/Myinfo" component = {Myinfo} />
      <Route path="/Userinfo" component = {Userinfo} />
      <Route path="/Seller_board" component = {Seller_board} />
+     <Route path="/Register" component = {Regiseter} />
 
   </BrowserRouter>
 
