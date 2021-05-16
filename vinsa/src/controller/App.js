@@ -6,6 +6,8 @@ import "../view/style/style.css";
 import Mainpage from '../view/Mainpage';
 import Loginform from '../view/Loginform';
 import Joinform from '../view/Joinform';
+import Myinfo from '../view/Myinfo';
+import Userinfo from '../view/Userinfo';
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
      <Route path="/" component = {Mainpage} exact />
      <Route path="/Loginform" component = {Loginform} />
      <Route path="/Joinform" component = {Joinform} />
+     <Route path="/Myinfo" component = {Myinfo} />
+     <Route path="/Userinfo" component = {Userinfo} />
 
   </BrowserRouter>
 

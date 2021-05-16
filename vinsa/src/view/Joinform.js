@@ -20,9 +20,25 @@ const Joinform = () => {
   // 게시글이 작성되었나 확인
   const [check, setcheck] = useState(false);
 
+  let boardArray = []
+    const [temp, settemp] = useState([]);
+
+  useEffect(() => {
+
+     dbService.collection("user").onSnapshot((snapshot) => {
+      boardArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      settemp(boardArray)
+
+    })
+    });
+
+
    // 버튼 클릭이 있을때 게시글을 추가해줌
-   const onclick = async (event) => {
-    event.preventDefault();
+   const onclick = async () => {
+
 
     const data = {
       id: id,
@@ -44,6 +60,23 @@ const Joinform = () => {
 
     console.log(data)
 }
+
+  const id_overlap_check = () => {
+
+    let i=0;
+    while(i < temp.length)
+    {
+      if (temp[i]['id'] == id) {
+        alert("이미 존재하는 ID입니다.")
+        break
+      }
+      i++
+    }
+    if(i == temp.length)
+        alert("사용가능한 ID입니다.")
+
+  }
+
 
   
   const onChange_id = (event) => {
@@ -106,6 +139,8 @@ const Joinform = () => {
   </section>
       ID<br></br>
       <input onChange={onChange_id} type="text" value={id}/>
+      &nbsp;<button onClick={id_overlap_check} value="duple"> 중복확인 </button>
+
       <br></br>
       비밀번호<br></br>
       <input onChange={onChange_password} type="password"  value={password}/>

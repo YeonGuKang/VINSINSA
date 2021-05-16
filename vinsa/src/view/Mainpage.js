@@ -10,18 +10,11 @@ import "./style/style.css";
 import menu from "./style/MenuBar.module.css";
 import Header from "./Header"
 
-let obj_image = [];
-let obj_name = [];
-let obj_step = [];
-let obj_part = [];
-let obj_way = [];
-let obj_detail = [];
-let obj_manual = [];
+
 
 
 const Mainpage = () => {
-  // 아래 슬라이드용 객체
-  const [slide_obj,setslide_obj] = useState([]);
+ 
 
 
   
@@ -40,7 +33,6 @@ const Mainpage = () => {
                   <div className={menu.LGbgr}>
                     <Header></Header>
               </div>  
-             
                   <div className="midle">
                 
                   <div className="slideshow-container">

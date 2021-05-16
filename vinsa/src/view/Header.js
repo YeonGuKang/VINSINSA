@@ -16,19 +16,22 @@ const Header = () => {
 
   const [IsManager, setIsManger] = useState(false);
   const [state , setstate] = useState(false)
+  const [mystate,setmystate] = useState("")
   // 운영자 UID 추가
-  const Manager = ['kwI5tKb8zxXdabjS5pFBPqHSpZk2','RmP4HLshuUQ0MYgpiFQZEZpHIS83']
+  const Manager = ['7l8AWE2RsnZMDFdyL7vOszpVYh53']
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setIsLoggedIn(true);
         setUserObj(user);
 
+        // 본인 id 판단
         const id=user.email.split('@')[0];
         // 운영자 판단
         if(Manager.includes(user.uid))
         {
           setIsManger(true);
+          setmystate("운영자")
         }
         else
         {
@@ -45,9 +48,15 @@ const Header = () => {
                 console.log(id)
                 console.log(boardArray[i]["state"])
                 if(boardArray[i]["state"] == "판매자")
+                {
                   setstate(false)
+                  setmystate("판매자")
+                }
                 else 
+                {
                   setstate(true)
+                  setmystate("구매자")
+                }
               }
               i++
             }
@@ -71,15 +80,14 @@ const Header = () => {
   return(
     // 로그인시 일반사용자 , 운영자를 구분
     <div>
-     {isLoggedIn ? IsManager ? <h>운영자입니다.</h> : state ? <h>구매자입니다.</h> : <h>판매자입니다.</h> : null}
+      
+     {isLoggedIn ? IsManager ? <h>관리자입니다.</h> : state ? <h>구매자입니다.</h> : <h>판매자입니다.</h> : null}
     <div className={menu.header}>
         <div className={menu.Rlogo}>
-            {/* js에서는 img를 이런식으로 import해서 불러온다. */}
-            <a href="/Checipe">
-           
-              </a>
+        
         </div>
             <div>
+            {IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li>}
                 <ul className={menu.nav}>
                     <li><Link to="/Category">Category</Link></li>
                     <li><Link to="/Notice">공지사항</Link></li>
