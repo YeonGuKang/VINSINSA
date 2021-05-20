@@ -232,7 +232,7 @@ setlimit_boards(page_boards)
                         
                         {boards.map(board => 
                         <div className={noti.board_content} key={board.id}>
-                         <li><Link to ={"/View/" + board.id}>{board.name}</Link></li>                 
+                         <li><Link to ={"/View_board/" + board.id}>{board.name}</Link></li>                 
                         </div>
                        )}
                     </div>

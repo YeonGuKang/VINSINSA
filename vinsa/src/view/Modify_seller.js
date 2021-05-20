@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 
 import rec from "./style/Recipe.module.css";
-import regi from "./style/Register.module.css";
-import { authService , dbService, dbstorage } from '../model/firebase';
 
+import regi from "./style/Register.module.css";
+import { authService , dbService } from '../model/firebase';
 
 import Header from "./Header"
 
-// 게시글을 등록하는 component
 
-const Register = () => {
+const Modify_seller = () => {
 
     const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,11 +27,12 @@ const Register = () => {
 
   // 게시글이 작성되었나 확인
   const [check, setcheck] =useState(false);
-  const [metadata, setmetadata] = useState("");
+  const [data, setdata] =useState([]);
 
   // 게시글 작성 날짜를 위함
   let today = new Date();
   
+  let id;
   useEffect(() => {
     // 스크롤 상단으로 초기화
     window.scrollTo(0, 0);
@@ -48,6 +48,20 @@ const Register = () => {
       }
       setInit(true);
     });
+
+    // url로 넘어온 본인 state를 얻음
+    id = window.location.href.split("/")[4]
+    id=decodeURI(id)
+    console.log(id)
+
+    //   사용자가 선택한 게시글에 맞게 데이터를 불러옴
+    const docRef = dbService.collection('board').doc('seller_board').collection("seller_board").doc(id)
+
+    // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
+    docRef.get().then(function(doc) {  setdata(doc.data())});
+
+
+    
     
   }, []);
 
@@ -65,7 +79,12 @@ const Register = () => {
       admit:"심사 대기"
   }
 
-    await  dbService.collection("board").doc('seller_board').collection("seller_board").doc().set(data);
+    // url로 넘어온 본인 state를 얻음
+    id = window.location.href.split("/")[4]
+    id=decodeURI(id)
+    console.log(id)
+
+    await  dbService.collection("board").doc('seller_board').collection("seller_board").doc(id).update(data);
 
     settitle("");
     setcontent("");
@@ -100,24 +119,10 @@ const Register = () => {
     setprice(value)
   };
 
-  const image_upload = async (event) => {
-    
-  var storageRef = dbstorage.ref();
+  console.log(data['name'])
 
-  // Create a reference to 'mountains.jpg'
-  var mountainsRef = storageRef.child(title);
-
-  console.log(event.target.files)
-  var file = event.target.files[0]
-  await mountainsRef.put(file).then(function(snapshot) {
-    console.log('Uploaded a blob or file!');
-  });
-
-
-  }
-
-    return(           
-        <div className={rec.wrap}> 
+    return (
+      <div className={rec.wrap}> 
            <div className={rec.half_bgs}>        
          <Header></Header>
           {/* 게시글 작성을 위한 middle부분 */}
@@ -130,14 +135,14 @@ const Register = () => {
                     type = 'text'
                     value={title}
                 
-                    placeholder='상품명'
+                    placeholder={data['name']}
                     maxLength={10} />
                      <input 
                     onChange={onChange_price}
                     type = 'text'
                     value={price}
                 
-                    placeholder='희망 가격'
+                    placeholder={data['price']}
                     maxLength={10} />
                 </div>
 
@@ -145,19 +150,14 @@ const Register = () => {
                     <textarea 
                     onChange={onChange_content}
                     className={regi.content_txt} 
-                    placeholder='오염 및 하자를 정확히 입력해주세요.'
+                    placeholder={data['cotent']}
                     type = 'text'
                     value={content}
                     minLength={100} />
                 </div>
-                <img
-                src={metadata}
-
-                />   
-                <input type='file' onChange={image_upload} />
                 
                 <button onClick={onclick} className = {regi.registerbtn}>
-                Register
+                Modify
                 </button>
 
             {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
@@ -171,10 +171,8 @@ const Register = () => {
           </div>           
           <div className={rec.half_bg} />  
         </div>
-        
-      
-);
-}
+        );
+  }
 
 
-export default Register;
+export default Modify_seller;
