@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 
 import rec from "./style/Recipe.module.css";
-
+import noti from "./style/Notice.module.css";
 import regi from "./style/Register.module.css";
-import { authService , dbService } from '../model/firebase';
+import { authService , dbService ,dbstorage} from '../model/firebase';
 
 import Header from "./Header"
+import Category from "./Category";
 
 
-const Modify_seller = () => {
+const View_product = () => {
 
     const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,12 +29,19 @@ const Modify_seller = () => {
   // 게시글이 작성되었나 확인
   const [check, setcheck] =useState(false);
   const [data, setdata] =useState([]);
+  const [imageurl1,setimageurl1]=useState("");
+  const [imageurl2,setimageurl2]=useState("");
+  const [imageurl3,setimageurl3]=useState("");
+  const [imageurl4,setimageurl4]=useState("");
+  const [imageurl5,setimageurl5]=useState("");
+  const [userid,setid] =useState("");
 
   // 게시글 작성 날짜를 위함
   let today = new Date();
   
   let id;
-  useEffect(() => {
+  let Catego;
+  useEffect( async () => {
     // 스크롤 상단으로 초기화
     window.scrollTo(0, 0);
     authService.onAuthStateChanged((user) => {
@@ -50,74 +58,57 @@ const Modify_seller = () => {
     });
 
     // url로 넘어온 본인 state를 얻음
-    id = window.location.href.split("/")[4]
+    Catego = window.location.href.split("/")[4]
+    Catego = decodeURI(Catego)
+    id = window.location.href.split("/")[5]
     id=decodeURI(id)
-    console.log(id)
+    setid(id);
 
+    console.log(Catego)
+    console.log(id)
     //   사용자가 선택한 게시글에 맞게 데이터를 불러옴
-    const docRef = dbService.collection('board').doc('seller_board').collection("seller_board").doc(id)
+    const docRef = await dbService.collection('category').doc('category').collection(Catego).doc(id)
 
+    let title;
     // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
-    docRef.get().then(function(doc) {  setdata(doc.data())});
+    docRef.get().then(async function(doc) {  setdata(doc.data())
 
 
-    
-    
+    var storage = dbstorage;
+    var storageRef = storage.ref();
+    var imageRef1 = storageRef.child(title+"1");
+    var imageRef2 = storageRef.child(title+"2");
+    var imageRef3 = storageRef.child(title+"3");
+    var imageRef4 = storageRef.child(title+"4");
+    var imageRef5 = storageRef.child(title+"5");
+
+    setimageurl1(await imageRef1.getDownloadURL())
+    setimageurl2(await imageRef2.getDownloadURL())
+    setimageurl3(await imageRef3.getDownloadURL())
+    setimageurl4(await imageRef4.getDownloadURL())
+    setimageurl5(await imageRef5.getDownloadURL())
+    });
+
+  
+
+
+
+    // const reader = new FileReader();
+
+    // // Get metadata properties
+    // imageRef.getMetadata().then(function(metadata) {
+
+    //   reader.onloadend = (finishedEvent) => {
+    //     console.log(finishedEvent)
+    //   }
+
+    //   reader.readAsDataURL(metadata)
+    // }).catch(function(error) {
+    //   // Uh-oh, an error occurred!
+    // });
+
+
   }, []);
-
-  // 버튼 클릭이 있을때 게시글을 추가해줌
-  const onclick = async (event) => {
-    event.preventDefault();
-
-    const data={
-      name:title,
-      content:content,
-      // 현재 날짜를 이런식으로 추가해준다
-      createdAt:today.toLocaleDateString('en-US') +' ' + today.toLocaleTimeString('en-US'),
-      writer: userObj.email.split('@')[0],
-      price:price,
-      admit:"심사 대기"
-  }
-
-    // url로 넘어온 본인 state를 얻음
-    id = window.location.href.split("/")[4]
-    id=decodeURI(id)
-    console.log(id)
-
-    await  dbService.collection("board").doc('seller_board').collection("seller_board").doc(id).update(data);
-
-    settitle("");
-    setcontent("");
-    // 게시글을 추가하였으니 true로 변환
-    setcheck(true);
-  };
-
-  // title과 content의 값을 변환해준다
-  const onChange_title = (event) => {
-    const {
-      target: { value },
-    } = event;
-    settitle(value)
-  };
-
-  const onChange_content = (event) => {
-
-    let {
-      target: { value },
-    } = event;
-
-    setcontent(value)
-  };
-
-   // title과 content의 값을 변환해준다
-   const onChange_price = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setprice(value)
-  };
-
-  console.log(data)
 
     return (
       <div className={rec.wrap}> 
@@ -129,43 +120,37 @@ const Modify_seller = () => {
                 <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
-                    onChange={onChange_title}
+           
                     type = 'text'
-                    value={title}
-                
-                    placeholder={data['name']}
+                    value={data['name']}
                     maxLength={10} />
                      <input 
-                    onChange={onChange_price}
+               
                     type = 'text'
-                    value={price}
+                    value={data['price']}
                 
-                    placeholder={data['price']}
+                    readOnly
                     maxLength={10} />
                 </div>
 
                 <div>
                     <textarea 
-                    onChange={onChange_content}
+           
                     className={regi.content_txt} 
-
-                    type = 'text'
-                    value={content}
-
-                    placeholder={data['content']}
+                    readOnly
+                    value={data['content']}
                     minLength={100} />
                 </div>
-                
-                <button onClick={onclick} className = {regi.registerbtn}>
-                Modify
-                </button>
-
-            {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
-                <div>{check ? <Redirect from="/Register" to = "/Seller_board" />: null}
-                </div>
+                <img src={imageurl1} width='300px' height ='300px'/>
+                <img src={imageurl2} width='300px' height ='300px'/>
+                <img src={imageurl3} width='300px' height ='300px'/>
+                <img src={imageurl4} width='300px' height ='300px'/>
+                <img src={imageurl5} width='300px' height ='300px'/>
             </form>  
             <div>
+            <button>구매하기</button>
         </div>
+        
           </div> 
 
           </div>           
@@ -175,4 +160,4 @@ const Modify_seller = () => {
   }
 
 
-export default Modify_seller;
+export default View_product;

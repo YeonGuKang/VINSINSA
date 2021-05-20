@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect } from 'react-router-dom';
 
 import rec from "./style/Recipe.module.css";
-
+import noti from "./style/Notice.module.css";
 import regi from "./style/Register.module.css";
 import { authService , dbService ,dbstorage} from '../model/firebase';
 
@@ -28,7 +28,12 @@ const View_board = () => {
   // 게시글이 작성되었나 확인
   const [check, setcheck] =useState(false);
   const [data, setdata] =useState([]);
-  const [imageurl,setimageurl]=useState("");
+  const [imageurl1,setimageurl1]=useState("");
+  const [imageurl2,setimageurl2]=useState("");
+  const [imageurl3,setimageurl3]=useState("");
+  const [imageurl4,setimageurl4]=useState("");
+  const [imageurl5,setimageurl5]=useState("");
+  const [userid,setid] =useState("");
 
   // 게시글 작성 날짜를 위함
   let today = new Date();
@@ -53,6 +58,7 @@ const View_board = () => {
     // url로 넘어온 본인 state를 얻음
     id = window.location.href.split("/")[4]
     id=decodeURI(id)
+    setid(id);
     console.log(id)
 
     //   사용자가 선택한 게시글에 맞게 데이터를 불러옴
@@ -61,16 +67,22 @@ const View_board = () => {
     let title;
     // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
     docRef.get().then(async function(doc) {  setdata(doc.data())
-    title = doc.data()['name']
+    title = doc.data()['img_name']
     console.log(title)
 
     var storage = dbstorage;
     var storageRef = storage.ref();
-    var imageRef = storageRef.child(title);
+    var imageRef1 = storageRef.child(title+"1");
+    var imageRef2 = storageRef.child(title+"2");
+    var imageRef3 = storageRef.child(title+"3");
+    var imageRef4 = storageRef.child(title+"4");
+    var imageRef5 = storageRef.child(title+"5");
 
-    console.log( await imageRef.getDownloadURL())
-
-    setimageurl(await imageRef.getDownloadURL())
+    setimageurl1(await imageRef1.getDownloadURL())
+    setimageurl2(await imageRef2.getDownloadURL())
+    setimageurl3(await imageRef3.getDownloadURL())
+    setimageurl4(await imageRef4.getDownloadURL())
+    setimageurl5(await imageRef5.getDownloadURL())
     });
 
   
@@ -94,7 +106,11 @@ const View_board = () => {
 
   }, []);
 
+const onclick = async () => {
 
+  await dbService.collection('board').doc('seller_board').collection("seller_board").doc(userid).delete()
+  setcheck(true)
+}
     return (
       <div className={rec.wrap}> 
            <div className={rec.half_bgs}>        
@@ -126,12 +142,22 @@ const View_board = () => {
                     value={data['content']}
                     minLength={100} />
                 </div>
-                <img src={imageurl} />
+                <img src={imageurl1} width='300px' height ='300px'/>
+                <img src={imageurl2} width='300px' height ='300px'/>
+                <img src={imageurl3} width='300px' height ='300px'/>
+                <img src={imageurl4} width='300px' height ='300px'/>
+                <img src={imageurl5} width='300px' height ='300px'/>
             </form>  
             <div>
         </div>
           </div> 
+          <div className={noti.register}>{ <li><Link to={"/Modify_seller/" + userid}>수정하기</Link></li>}</div>    
+          <button onClick={onclick} className = {regi.registerbtn}>
+                삭제하기
+                </button>
 
+                <div>{check ? <Redirect from="/View_board" to = "/Seller_board" />: null}
+                </div>
           </div>           
           <div className={rec.half_bg} />  
         </div>

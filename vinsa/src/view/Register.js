@@ -62,6 +62,7 @@ const Register = () => {
       createdAt:today.toLocaleDateString('en-US') +' ' + today.toLocaleTimeString('en-US'),
       writer: userObj.email.split('@')[0],
       price:price,
+      img_name:title,
       admit:"심사 대기"
   }
 
@@ -100,12 +101,12 @@ const Register = () => {
     setprice(value)
   };
 
-  const image_upload = async (event) => {
+  const image_upload1 = async (event) => {
     
   var storageRef = dbstorage.ref();
 
   // Create a reference to 'mountains.jpg'
-  var mountainsRef = storageRef.child(title);
+  var mountainsRef = storageRef.child(title+"1");
 
   console.log(event.target.files)
   var file = event.target.files[0]
@@ -115,6 +116,70 @@ const Register = () => {
 
 
   }
+
+  const image_upload5 = async (event) => {
+    
+    var storageRef = dbstorage.ref();
+  
+    // Create a reference to 'mountains.jpg'
+    var mountainsRef = storageRef.child(title+"5");
+  
+    console.log(event.target.files)
+    var file = event.target.files[0]
+    await mountainsRef.put(file).then(function(snapshot) {
+      console.log('Uploaded a blob or file!');
+    });
+  
+  
+    }
+
+    const image_upload2 = async (event) => {
+    
+      var storageRef = dbstorage.ref();
+    
+      // Create a reference to 'mountains.jpg'
+      var mountainsRef = storageRef.child(title+"2");
+    
+      console.log(event.target.files)
+      var file = event.target.files[0]
+      await mountainsRef.put(file).then(function(snapshot) {
+        console.log('Uploaded a blob or file!');
+      });
+    
+    
+      }
+
+      const image_upload3 = async (event) => {
+    
+        var storageRef = dbstorage.ref();
+      
+        // Create a reference to 'mountains.jpg'
+        var mountainsRef = storageRef.child(title+"3");
+      
+        console.log(event.target.files)
+        var file = event.target.files[0]
+        await mountainsRef.put(file).then(function(snapshot) {
+          console.log('Uploaded a blob or file!');
+        });
+      
+      
+        }
+
+        const image_upload4 = async (event) => {
+    
+          var storageRef = dbstorage.ref();
+        
+          // Create a reference to 'mountains.jpg'
+          var mountainsRef = storageRef.child(title+"4");
+        
+          console.log(event.target.files)
+          var file = event.target.files[0]
+          await mountainsRef.put(file).then(function(snapshot) {
+            console.log('Uploaded a blob or file!');
+          });
+        
+        
+          }
 
     return(           
         <div className={rec.wrap}> 
@@ -154,7 +219,11 @@ const Register = () => {
                 src={metadata}
 
                 />   
-                <input type='file' onChange={image_upload} />
+                <input type='file' onChange={image_upload1} />
+                <input type='file' onChange={image_upload2} />
+                <input type='file' onChange={image_upload3} />
+                <input type='file' onChange={image_upload4} />
+                <input type='file' onChange={image_upload5} />
                 
                 <button onClick={onclick} className = {regi.registerbtn}>
                 Register

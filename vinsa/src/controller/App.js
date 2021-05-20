@@ -11,6 +11,9 @@ import Userinfo from '../view/Userinfo';
 import Seller_board from '../view/Seller_board';
 import Regiseter from '../view/Register';
 import View_board from '../view/View_borad';
+import Modify_seller from '../view/Modify_seller';
+import Category from '../view/Category';
+import View_product from '../view/View_product';
 
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
      <Route path="/Seller_board" component = {Seller_board} />
      <Route path="/Register" component = {Regiseter} />
      <Route path="/View_board" component = {View_board} />
+     <Route path="/Modify_seller" component = {Modify_seller} />
+     <Route path="/Category" component = {Category} />
+     <Route path="/View_product" component = {View_product} />
 
   </BrowserRouter>
 
