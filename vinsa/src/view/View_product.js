@@ -78,11 +78,9 @@ const View_product = () => {
     // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
     docRef.get().then(async function(doc) {  setdata(doc.data())
 
-    
-
-
-    
-
+  
+      setcheck(true)
+  
     var storage = dbstorage;
     var storageRef = storage.ref();
     var imageRef1 = storageRef.child(title+"1");
@@ -96,28 +94,64 @@ const View_product = () => {
     setimageurl3(await imageRef3.getDownloadURL())
     setimageurl4(await imageRef4.getDownloadURL())
     setimageurl5(await imageRef5.getDownloadURL())
+    
     });
 
   
 
-
-
-    // const reader = new FileReader();
-
-    // // Get metadata properties
-    // imageRef.getMetadata().then(function(metadata) {
-
-    //   reader.onloadend = (finishedEvent) => {
-    //     console.log(finishedEvent)
-    //   }
-
-    //   reader.readAsDataURL(metadata)
-    // }).catch(function(error) {
-    //   // Uh-oh, an error occurred!
-    // });
-
-
   }, []);
+
+
+// 좋아요 함수
+const like = async () => {
+
+  const temp = authService.currentUser.email.split("@")[0]
+  // 현재 해당유저의 좋아요 정보를 가져옴
+  const res = await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).get();
+
+  const data = {
+        like : true
+        };
+
+        
+      //  현재 타입의 레시피 like 정보를 가져옴
+      const type_data =  await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).get();
+      let current_like = type_data.data().찜
+
+    // 만약에 해당 레시피의 좋아요를 이미 누른경우
+    if(res.data()!=undefined)
+      {
+      // 확인을 누르면 실행
+      if(window.confirm('이미 좋아요 한 레시피입니다! 좋아요를 취소 하시겠습니까?')){
+        // 좋아요에서 해당하는 레시피를 삭제
+        await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).delete();
+
+        // merge와 현재 type 레시피의 like를 1씩 뺌
+        await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like - 1});
+
+
+        alert('좋아요가 삭제 되었습니다!')
+        }
+      }
+    // 좋아요를 누른적이 없을 경우 실행
+      else{
+        console.log(current_like)
+        if(current_like == undefined)
+        {
+          current_like = 0;
+        }
+
+      //  merge와 해당 type의 레시피 like를 1씩증가
+      await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
+
+
+      await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).set(data)
+
+      alert('좋아요가 완료 되었습니다!')
+      }
+
+}
+
 
 
     return (
@@ -131,6 +165,7 @@ const View_product = () => {
               
                 <div className = {regi.Write}>
                 <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
+                {/* <button onClick={like}>추천하기!</button> */}
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     type = 'text'
@@ -145,13 +180,13 @@ const View_product = () => {
                     maxLength={10} />
                 </div>
 
-                <div>
+                <div>{
                     <textarea 
            
                     className={regi.content_txt} 
                     readOnly
                     value={data['content']}
-                    minLength={100} />
+                    minLength={100} />}
                 </div>
                 <img src={imageurl1} width='300px' height ='300px'/>
                 <img src={imageurl2} width='300px' height ='300px'/>

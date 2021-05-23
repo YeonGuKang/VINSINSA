@@ -400,6 +400,7 @@ const Category = () => {
                  />
                   <h2>{Show.price}</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
+                  <h3>{"좋아요 : "+Show.찜}</h3>
             
                   </div>
               ))}
