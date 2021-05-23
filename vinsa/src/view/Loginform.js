@@ -115,13 +115,8 @@ const Loginform = () => {
         <div className="authBtns">
         <li><Link to="/Joinform">회원가입</Link></li>
              <button className="authBtn" onClick={onSocialClick} name="Google">
-           
               구글 계정으로 계속하기
             </button>
-            <button className="authBtn" onClick={onSocialClick} name="Github">
-             
-              깃허브 계정으로 계속하기
-            </button> 
         </div>
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = {history.goBack()} />: null}</div>

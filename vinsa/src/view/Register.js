@@ -229,10 +229,30 @@ const [myID,setmyID] = useState("");
          <Header></Header>
           {/* 게시글 작성을 위한 middle부분 */}
           <div className = {regi.middle}>
+            
             <form className = {regi.registerform}>
                 <div className = {regi.Write}>
-                  {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
-                    <input 
+                    
+                <input type='file' onChange={image_upload1} />
+                <input type='file' onChange={image_upload2} />
+                <input type='file' onChange={image_upload3} />
+                <input type='file' onChange={image_upload4} />
+                <input type='file' onChange={image_upload5} />
+  
+             
+                </div>
+
+                <div>
+                    <textarea 
+                    onChange={onChange_content}
+                    className={regi.content_txt} 
+                    placeholder='오염 및 하자를 정확히 입력해주세요.'
+                    type = 'text'
+                    value={content}
+                    minLength={100} />
+                </div>
+     {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
+     <input 
                     onChange={onChange_title}
                     type = 'text'
                     value={title}
@@ -246,39 +266,20 @@ const [myID,setmyID] = useState("");
                 
                     placeholder='희망 가격'
                     maxLength={10} />
-                </div>
-
-                <div>
-                    <textarea 
-                    onChange={onChange_content}
-                    className={regi.content_txt} 
-                    placeholder='오염 및 하자를 정확히 입력해주세요.'
-                    type = 'text'
-                    value={content}
-                    minLength={100} />
-                </div>
-                <img
-                src={metadata}
-
-                />   
-                <input type='file' onChange={image_upload1} />
-                <input type='file' onChange={image_upload2} />
-                <input type='file' onChange={image_upload3} />
-                <input type='file' onChange={image_upload4} />
-                <input type='file' onChange={image_upload5} />
-                
-                <button onClick={onclick} className = {regi.registerbtn}>
-                Register
-                </button>
-
+                    
             {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
                 <div>{check ? <Redirect from="/Register" to = "/Seller_board" />: null}
                 </div>
             </form>  
+            
             <div>
+              
         </div>
-          </div> 
-
+        
+          </div>              
+          <button onClick={onclick} className = {regi.registerbtn}>
+                Register
+                </button>
           </div>           
           <div className={rec.half_bg} />  
         </div>

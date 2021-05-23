@@ -54,7 +54,7 @@ const [myID,setmyID] = useState("");
       setInit(true);
     });
 
-    const id=authService.currentUser.email.split('@')[0]; // 본인 id 판단
+    const id= authService.currentUser.email.split('@')[0]; // 본인 id 판단
     setmyID(id)
     console.log(id)
     dbService.collection("user").onSnapshot((snapshot) => {
@@ -131,7 +131,7 @@ const [myID,setmyID] = useState("");
   var storageRef = dbstorage.ref();
 
   // Create a reference to 'mountains.jpg'
-  var mountainsRef = storageRef.child(title+"1");
+  var mountainsRef = storageRef.child("리뷰_"+title+"1");
 
   console.log(event.target.files)
   var file = event.target.files[0]
@@ -142,69 +142,6 @@ const [myID,setmyID] = useState("");
 
   }
 
-  const image_upload5 = async (event) => {
-    
-    var storageRef = dbstorage.ref();
-  
-    // Create a reference to 'mountains.jpg'
-    var mountainsRef = storageRef.child(title+"5");
-  
-    console.log(event.target.files)
-    var file = event.target.files[0]
-    await mountainsRef.put(file).then(function(snapshot) {
-      console.log('Uploaded a blob or file!');
-    });
-  
-  
-    }
-
-    const image_upload2 = async (event) => {
-    
-      var storageRef = dbstorage.ref();
-    
-      // Create a reference to 'mountains.jpg'
-      var mountainsRef = storageRef.child(title+"2");
-    
-      console.log(event.target.files)
-      var file = event.target.files[0]
-      await mountainsRef.put(file).then(function(snapshot) {
-        console.log('Uploaded a blob or file!');
-      });
-    
-    
-      }
-
-      const image_upload3 = async (event) => {
-    
-        var storageRef = dbstorage.ref();
-      
-        // Create a reference to 'mountains.jpg'
-        var mountainsRef = storageRef.child(title+"3");
-      
-        console.log(event.target.files)
-        var file = event.target.files[0]
-        await mountainsRef.put(file).then(function(snapshot) {
-          console.log('Uploaded a blob or file!');
-        });
-      
-      
-        }
-
-        const image_upload4 = async (event) => {
-    
-          var storageRef = dbstorage.ref();
-        
-          // Create a reference to 'mountains.jpg'
-          var mountainsRef = storageRef.child(title+"4");
-        
-          console.log(event.target.files)
-          var file = event.target.files[0]
-          await mountainsRef.put(file).then(function(snapshot) {
-            console.log('Uploaded a blob or file!');
-          });
-        
-        
-          }
 
     return(           
         <div className={rec.wrap}> 
@@ -246,7 +183,7 @@ const [myID,setmyID] = useState("");
                 <button onClick={onclick} className = {regi.registerbtn}>
                 Register
                 </button>
-
+                <input type='file' onChange={image_upload1} />
             {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
                 <div>{check ? <Redirect from="/Review_register" to = "/Review" />: null}
                 </div>

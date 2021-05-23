@@ -151,8 +151,8 @@ const onclick = async () => {
             <div>
         </div>
           </div> 
-          <div className={noti.register}>{ <li><Link to={"/Modify_seller/" + userid}>수정하기</Link></li>}</div>    
-          <button onClick={onclick} className = {regi.registerbtn}>
+          <div className={noti.register}>{ <button className = {regi.registerbtn3}><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>}</div>    
+          <button onClick={onclick} className = {regi.registerbtn2}>
                 삭제하기
                 </button>
 

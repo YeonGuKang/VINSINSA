@@ -67,8 +67,17 @@ const View_review = () => {
     let title;
     // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
     docRef.get().then(async function(doc) {  setdata(doc.data())
-
+    title = (doc.data()['title'])
    
+
+    var storage = dbstorage;
+    var storageRef = storage.ref();
+    var imageRef1 = storageRef.child("리뷰_"+title+"1");
+
+
+    setimageurl1(await imageRef1.getDownloadURL())
+
+
     });
 
   
@@ -103,6 +112,8 @@ const onclick = async () => {
          <Header></Header>
           {/* 게시글 작성을 위한 middle부분 */}
           <div className = {regi.middle}>
+
+          <img src={imageurl1} width='500px' height ='500px' />
             <form className = {regi.registerform}>
                 <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
@@ -119,7 +130,6 @@ const onclick = async () => {
                     readOnly
                     maxLength={10} />
                 </div>
-
                 <div>
                     <textarea 
            
@@ -128,15 +138,14 @@ const onclick = async () => {
                     value={data['content']}
                     minLength={100} />
                 </div>
-
+                <button onClick={onclick} className = {regi.registerbtn}>
+                삭제하기
+                </button>
             </form>  
+            
             <div>
         </div>
           </div> 
-          <div className={noti.register}>{ <li><Link to={"/Modify_seller/" + userid}>수정하기</Link></li>}</div>    
-          <button onClick={onclick} className = {regi.registerbtn}>
-                삭제하기
-                </button>
             <div>{check ? <Redirect from="/View_review" to = "/Review" />: null}
             </div>
 

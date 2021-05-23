@@ -80,7 +80,7 @@ return(
     <div className="mainform">
 
     {check ? My_info['구매목록'].map((Show)=>(
-            <li>{Show}</li>
+            <li>{Show} : 배송 준비 중</li>
       )):null }
 
     
