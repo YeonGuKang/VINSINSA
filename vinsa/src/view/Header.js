@@ -17,6 +17,7 @@ const Header = () => {
   const [IsManager, setIsManger] = useState(false);
   const [state , setstate] = useState(false)
   const [mystate,setmystate] = useState("")
+  const [Isseller,setIsseller] = useState(false)
   // 운영자 UID 추가
   const Manager = ['7l8AWE2RsnZMDFdyL7vOszpVYh53']
   useEffect(() => {
@@ -50,6 +51,7 @@ const Header = () => {
                 {
                   setstate(false)
                   setmystate("판매자")
+                  setIsseller(true)
                 }
                 else 
                 {
@@ -87,6 +89,7 @@ const Header = () => {
         </div>
             <div>
             {isLoggedIn ? IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li> : null}
+            {isLoggedIn ? Isseller ? <li><Link to={"/view_sell"}>판매목록 조회하기</Link></li> : null : null}
                 <ul className={menu.nav}>
                     <li><Link to="/Category">Category</Link></li>
                     <li><Link to="/Notice">공지사항</Link></li>

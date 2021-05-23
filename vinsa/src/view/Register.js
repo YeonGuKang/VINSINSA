@@ -30,6 +30,11 @@ const Register = () => {
   const [check, setcheck] =useState(false);
   const [metadata, setmetadata] = useState("");
 
+  const [My_info, setMy_info] = useState([]);
+
+const [data, setdata] =useState([]);
+const [myID,setmyID] = useState("");
+
   // 게시글 작성 날짜를 위함
   let today = new Date();
   
@@ -48,6 +53,26 @@ const Register = () => {
       }
       setInit(true);
     });
+
+    const id=authService.currentUser.email.split('@')[0]; // 본인 id 판단
+    setmyID(id)
+    console.log(id)
+    dbService.collection("user").onSnapshot((snapshot) => {
+        const boardArray = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        let i=0;
+        while(i<boardArray.length)
+        {
+            if(boardArray[i]['id'] == id)
+            {
+            console.log(boardArray[i])
+            setMy_info(boardArray[i])
+            }
+            i++
+        }
+      });
     
   }, []);
 
@@ -67,6 +92,8 @@ const Register = () => {
   }
 
     await  dbService.collection("board").doc('seller_board').collection("seller_board").doc().set(data);
+
+
 
     settitle("");
     setcontent("");

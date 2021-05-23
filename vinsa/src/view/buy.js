@@ -22,7 +22,12 @@ const [myID,setmyID] = useState("");
 const [check,setcheck] = useState(false);
 const [userObj, setUserObj] = useState(null);
 
+const [productid,setproductid] = useState("");
+const [productcate,setproductcate]=useState("")
+
+
 let Catego,id
+let writer=""
 
   useEffect(() => {
       
@@ -62,8 +67,10 @@ let Catego,id
     // url로 넘어온 본인 state를 얻음
     Catego = window.location.href.split("/")[4]
     Catego = decodeURI(Catego)
+    setproductcate(Catego)
     id = window.location.href.split("/")[5]
     id=decodeURI(id)
+    setproductid(id)
 
     console.log(Catego)
     console.log(id)
@@ -89,6 +96,31 @@ let Catego,id
         
         My_info['구매목록'].push(data['name'])
         await dbService.collection('user').doc(myID).update({"구매목록" : My_info["구매목록"]})
+
+        //   사용자가 선택 게시글에 맞게 데이터를 불러옴
+        console.log(productid)
+        const docRef = await dbService.collection('category').doc('category').collection(productcate).doc(productid)
+
+        docRef.get().then( async function(doc) { 
+          writer = doc.data()['writer']
+          console.log(writer)
+
+
+        const ref = dbService.collection("user").doc(writer)
+
+        ref.get().then( async function(doc) { 
+         
+
+        let t_data = doc.data()['판매목록']
+        t_data.push(data['name'])
+        console.log(t_data)
+        
+        await dbService.collection('user').doc(writer).update({"판매목록" : t_data})
+
+
+        });
+
+      });
 
         alert("구매가 완료되었습니다!")
 

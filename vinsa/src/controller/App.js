@@ -16,6 +16,7 @@ import Category from '../view/Category';
 import View_product from '../view/View_product';
 import buy from '../view/buy'
 import view_buy from '../view/view_buy'
+import view_sell from '../view/view_sell'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
      <Route path="/View_product" component = {View_product} />
      <Route path="/buy" component = {buy} />
      <Route path="/view_buy" component = {view_buy} />
+     <Route path="/view_sell" component = {view_sell} />
 
   </BrowserRouter>
 
