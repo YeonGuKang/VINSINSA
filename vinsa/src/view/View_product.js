@@ -36,6 +36,10 @@ const View_product = () => {
   const [imageurl5,setimageurl5]=useState("");
   const [userid,setid] =useState("");
 
+  const [hookCatego,sethookCatego] = useState("");
+
+
+
   // 게시글 작성 날짜를 위함
   let today = new Date();
   
@@ -63,6 +67,7 @@ const View_product = () => {
     id = window.location.href.split("/")[5]
     id=decodeURI(id)
     setid(id);
+    sethookCatego(Catego)
 
     console.log(Catego)
     console.log(id)
@@ -73,6 +78,10 @@ const View_product = () => {
     // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
     docRef.get().then(async function(doc) {  setdata(doc.data())
 
+    
+
+
+    
 
     var storage = dbstorage;
     var storageRef = storage.ref();
@@ -110,17 +119,20 @@ const View_product = () => {
 
   }, []);
 
+
     return (
       <div className={rec.wrap}> 
            <div className={rec.half_bgs}>        
          <Header></Header>
           {/* 게시글 작성을 위한 middle부분 */}
           <div className = {regi.middle}>
+            
             <form className = {regi.registerform}>
+              
                 <div className = {regi.Write}>
+                <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
-           
                     type = 'text'
                     value={data['name']}
                     maxLength={10} />
@@ -146,16 +158,17 @@ const View_product = () => {
                 <img src={imageurl3} width='300px' height ='300px'/>
                 <img src={imageurl4} width='300px' height ='300px'/>
                 <img src={imageurl5} width='300px' height ='300px'/>
-            </form>  
+                
+            </form>
+  
             <div>
-            <button>구매하기</button>
         </div>
         
           </div> 
-
           </div>           
           <div className={rec.half_bg} />  
         </div>
+        
         );
   }
 

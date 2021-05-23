@@ -49,7 +49,8 @@ const Joinform = () => {
       sex: sex,
       email: email,
       address: address,
-      state: state
+      state: state,
+      "구매목록": []
     }
 
     await dbService.collection("user").doc(id).set(data);

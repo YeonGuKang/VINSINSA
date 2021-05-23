@@ -14,6 +14,8 @@ import View_board from '../view/View_borad';
 import Modify_seller from '../view/Modify_seller';
 import Category from '../view/Category';
 import View_product from '../view/View_product';
+import buy from '../view/buy'
+import view_buy from '../view/view_buy'
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
      <Route path="/Modify_seller" component = {Modify_seller} />
      <Route path="/Category" component = {Category} />
      <Route path="/View_product" component = {View_product} />
+     <Route path="/buy" component = {buy} />
+     <Route path="/view_buy" component = {view_buy} />
 
   </BrowserRouter>
 

@@ -38,7 +38,7 @@ const Category = () => {
 
   const [chosen, setchosen] = useState([]);
 
-  const [category,setcategory] = useState("");
+  const [category,setcategory] = useState("dress");
 
 
 
@@ -47,6 +47,8 @@ const Category = () => {
     last_page=false;
     // 스크롤 상단으로 초기화
     window.scrollTo(0, 0);
+    console.log(userObj)
+    console.log(authService.currentUser)
     authService.onAuthStateChanged((user) => {
 
       if (user) {
@@ -70,6 +72,7 @@ const Category = () => {
       ...doc.data(),
     }));
     setdress(boardArray)
+    setchosen(boardArray)
   });
 
    // 첫 화면에 merge에서 가져온 값을 나타냄
@@ -120,8 +123,6 @@ const Category = () => {
 
   }, []);
 
-  console.log(chosen)
-  console.log(dress)
  
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
@@ -365,6 +366,7 @@ const Category = () => {
                   <button onClick={getChosen} name="shirts">shirts</button>
                   <button onClick={getChosen} name="skirt">skirt</button>
                   <button onClick={getChosen} name="top">top</button>
+                  <button><Link to={"/view_buy"}>내 구매목록</Link></button>
               <div className={rec.ingredientbtn}>
                                                                             
               </div>

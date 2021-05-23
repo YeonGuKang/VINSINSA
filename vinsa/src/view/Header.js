@@ -45,8 +45,7 @@ const Header = () => {
             {
               if(boardArray[i]['id'] == id)
               {
-                console.log(id)
-                console.log(boardArray[i]["state"])
+    
                 if(boardArray[i]["state"] == "판매자")
                 {
                   setstate(false)
