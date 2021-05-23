@@ -78,15 +78,20 @@ let Catego,id
 return(
     <div className="backwrap">
     <div className="mainform">
-
-    {check ? My_info['판매목록'].map((Show)=>(
+    <h1>판매완료품목</h1>
+    {check ? My_info['판매완료목록'].map((Show)=>(
+            <li>{Show}</li>
+      )):null }
+    
+      <div className="authBtns">
+          <h1>판매등록품목</h1>
+      {check ? My_info['판매등록목록'].map((Show)=>(
             <li>{Show}</li>
       )):null }
 
-    
-      <div className="authBtns">
-      
       </div>
+      <h1>판매완료: {check ? My_info['판매완료목록'].length : null}</h1>
+      <h1>판매등록: {check ? My_info['판매등록목록'].length : null}</h1>
   </div>
       
   </div>

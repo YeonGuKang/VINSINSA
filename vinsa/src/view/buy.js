@@ -111,11 +111,11 @@ let writer=""
         ref.get().then( async function(doc) { 
          
 
-        let t_data = doc.data()['판매목록']
+        let t_data = doc.data()['판매완료목록']
         t_data.push(data['name'])
         console.log(t_data)
         
-        await dbService.collection('user').doc(writer).update({"판매목록" : t_data})
+        await dbService.collection('user').doc(writer).update({"판매완료목록" : t_data})
 
 
         });

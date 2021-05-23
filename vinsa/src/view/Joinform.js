@@ -51,7 +51,8 @@ const Joinform = () => {
       address: address,
       state: state,
       "구매목록": [],
-      "판매목록": []
+      "판매등록목록": [],
+      "판매완료목록":[]
     }
 
     await dbService.collection("user").doc(id).set(data);

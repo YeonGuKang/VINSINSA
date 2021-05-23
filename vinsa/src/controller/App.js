@@ -17,13 +17,16 @@ import View_product from '../view/View_product';
 import buy from '../view/buy'
 import view_buy from '../view/view_buy'
 import view_sell from '../view/view_sell'
+import Review from '../view/Review'
+import Review_register from '../view/Review_register'
+import View_review from '../view/View_review'
 
 
 function App() {
  
   return(
     <BrowserRouter>
-     <Route path="/" component = {Mainpage} exact />
+     <Route path="/" component = {Category} exact />
      <Route path="/Loginform" component = {Loginform} />
      <Route path="/Joinform" component = {Joinform} />
      <Route path="/Myinfo" component = {Myinfo} />
@@ -37,6 +40,9 @@ function App() {
      <Route path="/buy" component = {buy} />
      <Route path="/view_buy" component = {view_buy} />
      <Route path="/view_sell" component = {view_sell} />
+     <Route path="/Review" component = {Review} />
+     <Route path="/Review_register" component = {Review_register} />
+     <Route path="/View_review" component = {View_review} />
 
   </BrowserRouter>
 

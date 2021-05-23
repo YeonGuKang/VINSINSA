@@ -81,32 +81,15 @@ const [myID,setmyID] = useState("");
     event.preventDefault();
 
     const data={
-      name:title,
+      title:title,
       content:content,
       // 현재 날짜를 이런식으로 추가해준다
       createdAt:today.toLocaleDateString('en-US') +' ' + today.toLocaleTimeString('en-US'),
       writer: userObj.email.split('@')[0],
-      price:price,
-      img_name:title,
-      admit:"심사 대기"
+      평점:price
   }
 
-    await  dbService.collection("board").doc('seller_board').collection("seller_board").doc().set(data);
-
-    console.log(My_info['id'])
-
-    const ref = dbService.collection("user").doc(My_info['id'])
-  
-    ref.get().then( async function(doc) { 
-
-      let t_data = doc.data()['판매등록목록']
-      t_data.push(data['name'])
-      console.log(t_data)
-      
-      await dbService.collection('user').doc(My_info['id']).update({"판매등록목록" : t_data})
-
-
-      });
+    await  dbService.collection("board").doc('board').collection("review").doc().set(data);
 
 
 
@@ -244,7 +227,7 @@ const [myID,setmyID] = useState("");
                     type = 'text'
                     value={price}
                 
-                    placeholder='희망 가격'
+                    placeholder='평점 (10점 만점)'
                     maxLength={10} />
                 </div>
 
@@ -252,27 +235,20 @@ const [myID,setmyID] = useState("");
                     <textarea 
                     onChange={onChange_content}
                     className={regi.content_txt} 
-                    placeholder='오염 및 하자를 정확히 입력해주세요.'
+                    placeholder='상품평을 남겨주세요!'
                     type = 'text'
                     value={content}
                     minLength={100} />
                 </div>
-                <img
-                src={metadata}
-
-                />   
-                <input type='file' onChange={image_upload1} />
-                <input type='file' onChange={image_upload2} />
-                <input type='file' onChange={image_upload3} />
-                <input type='file' onChange={image_upload4} />
-                <input type='file' onChange={image_upload5} />
+  
+           
                 
                 <button onClick={onclick} className = {regi.registerbtn}>
                 Register
                 </button>
 
             {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
-                <div>{check ? <Redirect from="/Register" to = "/Seller_board" />: null}
+                <div>{check ? <Redirect from="/Review_register" to = "/Review" />: null}
                 </div>
             </form>  
             <div>
