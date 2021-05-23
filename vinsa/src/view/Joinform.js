@@ -56,7 +56,7 @@ const Joinform = () => {
     }
 
     await dbService.collection("user").doc(id).set(data);
-    const data2 = await authService.createUserWithEmailAndPassword(
+    const data2 =  authService.createUserWithEmailAndPassword(
         id+"@naver.com",
         password
     )

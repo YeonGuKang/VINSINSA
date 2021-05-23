@@ -19,7 +19,7 @@ const Header = () => {
   const [mystate,setmystate] = useState("")
   const [Isseller,setIsseller] = useState(false)
   // 운영자 UID 추가
-  const Manager = ['7l8AWE2RsnZMDFdyL7vOszpVYh53']
+  const Manager = ['58IzMNK9QdXuRaReEdEVyIVDGss2']
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -49,13 +49,13 @@ const Header = () => {
     
                 if(boardArray[i]["state"] == "판매자")
                 {
-                  setstate(false)
+                  setstate(true)
                   setmystate("판매자")
                   setIsseller(true)
                 }
                 else 
                 {
-                  setstate(true)
+                  setstate(false)
                   setmystate("구매자")
                 }
               }
@@ -82,20 +82,18 @@ const Header = () => {
     // 로그인시 일반사용자 , 운영자를 구분
     <div>
       
-     {isLoggedIn ? IsManager ? <h>관리자입니다.</h> : state ? <h>구매자입니다.</h> : <h>판매자입니다.</h> : null}
+     {isLoggedIn ? IsManager ? <h>관리자입니다.</h> : state ? <h>판매자입니다.</h> : <h>구매자입니다.</h> : null}
     <div className={menu.header}>
         <div className={menu.Rlogo}>
         
         </div>
             <div>
-            {isLoggedIn ? IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li> : null}
-            {isLoggedIn ? Isseller ? <li><Link to={"/view_sell"}>판매목록 조회하기</Link></li> : null : null}
                 <ul className={menu.nav}>
                     <li><Link to="/Category">Category</Link></li>
-                    <li><Link to="/Notice">공지사항</Link></li>
+                    {Isseller ? <li><Link to="/view_sell">판매목록조회</Link></li> : <li><Link to={"/view_buy"}>구매목록조회</Link></li>}
                      <li><Link to="/Review">리뷰</Link></li>
-                     <li><Link to="/Q&A">Q&A</Link></li>
-                     <li><Link to="/Seller_board">판매자 게시판</Link></li>
+                    {Isseller ? <li><Link to="/Seller_board">판매자 게시판</Link></li> : null}
+                    {isLoggedIn ? IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li> : null}
                 </ul>
             </div>
        

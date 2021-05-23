@@ -72,18 +72,18 @@ const [My_info, setMy_info] = useState([]);
     return(
         <div className="backwrap">
         <div className="mainform">
-        <li>{My_info.id}</li>
-        <li>{My_info.email}</li>
-        <li>{My_info.birth}</li>
-        <li>{My_info.name}</li>
-        <li>{My_info.sex}</li>
-        <li>{My_info.address}</li>
-        <li>{My_info.state}</li>
+        {IsManager ? null : <h1>아이디 : {My_info.id}</h1>}
+        {IsManager ? null :<h1>이메일 :  {My_info.email}</h1>}
+        {IsManager ? null :<h1>생일 :  {My_info.birth}</h1>}
+        {IsManager ? null :<h1>이름 :  {My_info.name}</h1>}
+        {IsManager ? null :<h1>성별 :  {My_info.sex}</h1>}
+        {IsManager ? null :<h1>주소 :  {My_info.address}</h1>}
+        {IsManager ? null :<h1>{My_info.state}</h1>}
     
+        {IsManager ? <h1>회원 수 : {All_info.length}</h1>: null}
+        {IsManager ? <h5>회원관리시 회원아이디 클릭</h5>: null}
         {All_info.map((Show)=>(
-         
-                <li><Link to={"/Userinfo"+"/"+Show.id}>{Show.id}</Link></li>
-           
+                <li>아이디 : <Link to={"/Userinfo"+"/"+Show.id}>{Show.id}</Link></li>
          ))}
 
        

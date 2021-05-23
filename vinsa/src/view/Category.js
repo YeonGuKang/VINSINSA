@@ -366,7 +366,6 @@ const Category = () => {
                   <button onClick={getChosen} name="shirts">shirts</button>
                   <button onClick={getChosen} name="skirt">skirt</button>
                   <button onClick={getChosen} name="top">top</button>
-                  <button><Link to={"/view_buy"}>내 구매목록</Link></button>
               <div className={rec.ingredientbtn}>
                                                                             
               </div>
