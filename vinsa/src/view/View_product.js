@@ -190,8 +190,6 @@ const like = async (event) => {
             <form className = {regi.registerform}>
               
                 <div className = {regi.Write}>
-                <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
-                <button onClick={like}>찜해두기</button>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     type = 'text'
@@ -204,17 +202,19 @@ const like = async (event) => {
                 
                     readOnly
                     maxLength={10} /> 
+                         <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
+                <button onClick={like}>찜해두기</button>
                 </div>
 
                 <div>{
                     <textarea 
            
-                    className={regi.content_txt} 
+                    className={regi.content_txt2} 
                     readOnly
                     value={data ? data['content'] : null}
                     minLength={100} />}
                 </div> 
-               <img src={data ? data['img1'] : null} width='300px' height ='300px'/>
+               <img src={data ? data['img1'] : null} width='600px' height ='500px'/>
                 <img src={data ? data['img2'] : null} width='300px' height ='300px'/> 
                 <img src={data ? data['img3'] : null} width='300px' height ='300px'/> 
               <img src={data ? data['img4'] : null} width='300px' height ='300px'/>

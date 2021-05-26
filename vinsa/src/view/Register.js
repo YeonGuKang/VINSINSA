@@ -276,7 +276,7 @@ const [myID,setmyID] = useState("");
         </div>
         
           </div>              
-          <button onClick={onclick} className = {regi.registerbtn}>
+          <button onClick={onclick} className = {regi.registerbtn2}>
                 Register
                 </button>
           </div>           

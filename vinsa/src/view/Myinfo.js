@@ -75,13 +75,13 @@ const [My_info, setMy_info] = useState([]);
         <div className="backwrap">
         <div className="mainform">
           
-        {IsManager ? null : <h1>아이디 : {My_info.id}</h1>}
-        {IsManager ? null :<h1>이메일 :  {My_info.email}</h1>}
-        {IsManager ? null :<h1>생일 :  {My_info.birth}</h1>}
-        {IsManager ? null :<h1>이름 :  {My_info.name}</h1>}
-        {IsManager ? null :<h1>성별 :  {My_info.sex}</h1>}
-        {IsManager ? null :<h1>주소 :  {My_info.address}</h1>}
-        {IsManager ? null :<h1>{My_info.state}</h1>}
+        {IsManager ? null : <h3>아이디 : {My_info.id}</h3>}
+        {IsManager ? null :<h3>이메일 :  {My_info.email}</h3>}
+        {IsManager ? null :<h3>생일 :  {My_info.birth}</h3>}
+        {IsManager ? null :<h3>이름 :  {My_info.name}</h3>}
+        {IsManager ? null :<h3>성별 :  {My_info.sex}</h3>}
+        {IsManager ? null :<h3>주소 :  {My_info.address}</h3>}
+        {IsManager ? null :<h3>{My_info.state}</h3>}
     
         {IsManager ? <h1>회원 수 : {All_info.length}</h1>: null}
         {IsManager ? <h5>회원관리시 회원아이디 클릭</h5>: null}

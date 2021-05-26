@@ -66,8 +66,11 @@ const delete_user = async () =>{
 
 
     return(
+      <div>
+      <Header></Header>
         <div className="backwrap">
         <div className="mainform">
+        <h1 onClick={delete_user}>유저 삭제</h1>
         <li>{User_info.id}</li>
         <li>{User_info.email}</li>
         <li>{User_info.birth}</li>
@@ -80,12 +83,12 @@ const delete_user = async () =>{
           <div className="authBtns">
           </div>
      </div>
-     <h1 onClick={delete_user}>유저 삭제</h1>
      <div>{check ? <Redirect from="/Userinfo" to = '/Myinfo/운영자' />: null}</div>
+     
      </div>
 
      
-
+</div>
     );
     
 

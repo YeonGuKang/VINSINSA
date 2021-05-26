@@ -132,17 +132,21 @@ const onclick = async () => {
                 
                     readOnly
                     maxLength={10} />
+                           <button ><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>
+                           <button onClick={onclick}>
+                삭제하기
+                </button>
                 </div>
 
                 <div>
                     <textarea 
            
-                    className={regi.content_txt} 
+                    className={regi.content_txt2} 
        
                     value={data['content']}
                     minLength={100} />
                 </div>
-                <img src={imageurl1} width='300px' height ='300px'/>
+                <img src={imageurl1} width='600px' height ='500px'/>
                 <img src={imageurl2} width='300px' height ='300px'/>
                 <img src={imageurl3} width='300px' height ='300px'/>
                 <img src={imageurl4} width='300px' height ='300px'/>
@@ -150,10 +154,8 @@ const onclick = async () => {
             <div>
         </div>
           </div> 
-          <div className={noti.register}>{ <button className = {regi.registerbtn3}><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>}</div>    
-          <button onClick={onclick} className = {regi.registerbtn2}>
-                삭제하기
-                </button>
+          <div className={noti.register}>{ }</div>    
+      
 
                 <div>{check ? <Redirect from="/View_board" to = "/Seller_board" />: null}
                 </div>
