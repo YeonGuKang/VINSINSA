@@ -81,20 +81,20 @@ return(
     <Header></Header>
     <div className="backwrap">
     <div className="mainform">
-    <h1>판매완료품목</h1>
+    <h3>판매완료품목</h3>
     {check ? My_info['판매완료목록'].map((Show)=>(
             <li>{Show}</li>
       )):null }
     
       <div className="authBtns">
-          <h1>판매등록품목</h1>
+          <h3>판매등록품목</h3>
       {check ? My_info['판매등록목록'].map((Show)=>(
             <li>{Show}</li>
       )):null }
 
       </div>
-      <h1>판매완료: {check ? My_info['판매완료목록'].length : null}</h1>
-      <h1>판매등록: {check ? My_info['판매등록목록'].length : null}</h1>
+      <h3>판매완료: {check ? My_info['판매완료목록'].length : null}</h3>
+      <h3>판매등록: {check ? My_info['판매등록목록'].length : null}</h3>
   </div>
       
   </div>
