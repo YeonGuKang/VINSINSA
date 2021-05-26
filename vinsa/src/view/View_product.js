@@ -142,7 +142,7 @@ const like = async () => {
         }
 
       //  merge와 해당 type의 레시피 like를 1씩증가
-      await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
+     // await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
 
 
       await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).set(data)
@@ -165,7 +165,7 @@ const like = async () => {
               
                 <div className = {regi.Write}>
                 <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
-                {/* <button onClick={like}>추천하기!</button> */}
+                <button onClick={like}>추천하기!</button>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     type = 'text'
@@ -188,11 +188,11 @@ const like = async () => {
                     value={data['content']}
                     minLength={100} />}
                 </div>
-                <img src={imageurl1} width='300px' height ='300px'/>
-                <img src={imageurl2} width='300px' height ='300px'/>
-                <img src={imageurl3} width='300px' height ='300px'/>
-                <img src={imageurl4} width='300px' height ='300px'/>
-                <img src={imageurl5} width='300px' height ='300px'/>
+                <img src={data['img1']} width='300px' height ='300px'/>
+                <img src={data['img2']} width='300px' height ='300px'/>
+                <img src={data['img3']} width='300px' height ='300px'/>
+                <img src={data['img4']} width='300px' height ='300px'/>
+
                 
             </form>
   
