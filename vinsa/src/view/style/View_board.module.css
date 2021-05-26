@@ -7,7 +7,7 @@
 
 
 .middle{
-    background-color : #28421f;
+    background-color : #d3d3d3;
     position: relative;
     right:10vw;
     top : 25vh;
@@ -95,7 +95,7 @@
     padding: 18px 20px;
     margin: 0 4vw;
     color: aliceblue;
-    background: #537f46;
+    background: #212121;
     transition: all .5s;
 }
 
@@ -111,8 +111,8 @@
     padding: 18px 20px;
     margin-left: 3vw;
     margin-right: 3vw;
-    background: #537f4627;
-    box-shadow: 0 0 10px 15px #537f4627;
+    background: #212121;
+    box-shadow: 0 0 10px 15px #212121;
     transition: all .5s;
 }
 .smalltitle{

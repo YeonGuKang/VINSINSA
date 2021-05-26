@@ -17,7 +17,7 @@
     left : 7vw;    
     width : 92vw;
     height: 80vh;
-    background-color:  #537f46;
+    background-color:  #212121;
     display : flex;
     padding-bottom: 10px;
 }
@@ -48,7 +48,7 @@
 .space {
     /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
     /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-    background-color :  #28421f;
+    background-color :  #d3d3d3;
     width : 92vw;
     height : 100vh;
     top : 60vh;
@@ -60,7 +60,7 @@
     /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
     /* 그냥 뒤에 진한 초록색배경 */
     z-index: 2;
-    background-color :  #28421f;
+    background-color :  #d3d3d3;
     width : 92vw;
     height : 100%;
     position : relative;
@@ -90,7 +90,7 @@
     transition:all .3s ease
 }
 
-.nav :hover, .login :hover { color:#537f46;; transition:all .4s ease }
+.nav :hover, .login :hover { color:#212121;; transition:all .4s ease }
 
 .nav li ::after, .login ::after {
     content: '';
@@ -100,7 +100,7 @@
     display: block;
     position: absolute;
     margin-top: 2px;
-    border-bottom: 3px solid #537f46;
+    border-bottom: 3px solid #212121;
     transition:all .4s ease;
   }
 
@@ -113,7 +113,7 @@
     position: absolute;
     margin-top: 2px;
     color: var(--text-color);
-    border-bottom: 3px solid #537f46;
+    border-bottom: 3px solid #212121;
     transition:all .4s ease;
 }
 
@@ -133,7 +133,7 @@
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 그냥 뒤에 진한 초록색배경 */
         z-index: 2;
-        background-color :  #28421f;
+        background-color :  #d3d3d3;
         width : 1177.6px;
         height : 100%;
         position : relative;
@@ -151,14 +151,14 @@
         left : 89.6px;     
         width : 1177.6px;
         height: 80vh;
-        background-color:  #537f46;
+        background-color:  #212121;
         display : flex;
     }
 
     .space {
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-        background-color :  #28421f;
+        background-color :  #d3d3d3;
         width : 1177.6px;
         height : 100%;
         top : 60vh;
@@ -179,7 +179,7 @@
         left : 7vw;    
         width : 92vw;
         height: 720px;
-        background-color:  #537f46;
+        background-color:  #212121;
         display : flex;
         padding-bottom: 10px;
     }
@@ -187,7 +187,7 @@
     .space {
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-        background-color :  #28421f;
+        background-color :  #d3d3d3;
         width : 92vw;
         height : 100%;
         top : 540px;
@@ -203,7 +203,7 @@
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 그냥 뒤에 진한 초록색배경 */
         z-index: 2;
-        background-color :  #28421f;
+        background-color :  #d3d3d3;
         width : 1177.6px;
         height : 100%;
         position : relative;
@@ -221,14 +221,14 @@
         left : 89.6px;    
         width : 1177.6px;
         height: 720px;;
-        background-color:  #537f46;
+        background-color:  #212121;
         display : flex;
     }
 
     .space {
         /* 해당 클래스는 레시피 선택과 레시피를 보여주는 화면에서 사용이 됩니다. */
         /* 상자간 겹침에 따른 오차 때문에 생성한 네모 */
-        background-color :  #28421f;
+        background-color :  #d3d3d3;
         width : 1177.6px;
         height : 100%;
         top : 540px;

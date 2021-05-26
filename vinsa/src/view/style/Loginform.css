@@ -11,7 +11,7 @@
   position : relative;
   width: 27vw;
   height: 30px;
-  background-color: #537f46 ;
+  background-color: #212121 ;
   top : 100px;
 }
 .backwrap {
@@ -76,9 +76,9 @@
     font-size: 30px;
     /* font-weight: bold; */
     text-align: center;
-    background: #537f46 ;
+    background: #212121 ;
     cursor: pointer;
-    border:  #28421f;
+    border:  #d3d3d3;
 
   }
 

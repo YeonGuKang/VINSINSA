@@ -89,7 +89,7 @@
     margin : 10px;
     top: 10px;
     /* left: 200px; */
-    border-top: solid 3px #28421f;
+    border-top: solid 3px #d3d3d3;
     display: grid;
     grid-template-columns: 100% 50% 50%;
     text-align: center;   
