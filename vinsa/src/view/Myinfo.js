@@ -70,8 +70,11 @@ const [My_info, setMy_info] = useState([]);
 
 
     return(
+      <div>
+        <Header></Header>
         <div className="backwrap">
         <div className="mainform">
+          
         {IsManager ? null : <h1>아이디 : {My_info.id}</h1>}
         {IsManager ? null :<h1>이메일 :  {My_info.email}</h1>}
         {IsManager ? null :<h1>생일 :  {My_info.birth}</h1>}
@@ -92,7 +95,7 @@ const [My_info, setMy_info] = useState([]);
           </div>
      </div>
      </div>
-
+</div>
     );
     
 

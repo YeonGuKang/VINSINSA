@@ -95,6 +95,21 @@
     /* Safari and Chrome */
 }
 
+.hot{
+    color:red
+}
+
+.catebtn{
+   float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.mainimage{
+    position : relative;
+    top:100px;
+}
+
 @keyframes fadein {
     from {
         opacity: 0;

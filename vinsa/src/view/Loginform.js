@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRoute, Redirect, useHistory } from 'react-router-dom';
 import { authService, dbService , firebaseInstance} from "../model/firebase";
+import Header from "./Header";
 import "./style/Loginform.css";
 
 
@@ -98,6 +99,8 @@ const Loginform = () => {
   };
 
     return(
+      <div>
+        <Header></Header>
       <div className="backwrap">
       <div className="mainform">
     
@@ -121,7 +124,7 @@ const Loginform = () => {
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = {history.goBack()} />: null}</div>
    </div>
-
+</div>
   
     )
   }

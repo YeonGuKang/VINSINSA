@@ -20,13 +20,14 @@ import view_sell from '../view/view_sell'
 import Review from '../view/Review'
 import Review_register from '../view/Review_register'
 import View_review from '../view/View_review'
+import Main from '../view/Main'
 
 
 function App() {
  
   return(
     <BrowserRouter>
-     <Route path="/" component = {Category} exact />
+     <Route path="/" component = {Main} exact />
      <Route path="/Loginform" component = {Loginform} />
      <Route path="/Joinform" component = {Joinform} />
      <Route path="/Myinfo" component = {Myinfo} />
@@ -43,6 +44,7 @@ function App() {
      <Route path="/Review" component = {Review} />
      <Route path="/Review_register" component = {Review_register} />
      <Route path="/View_review" component = {View_review} />
+     
 
   </BrowserRouter>
 

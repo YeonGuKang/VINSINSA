@@ -80,8 +80,9 @@ const Header = () => {
 
   return(
     // 로그인시 일반사용자 , 운영자를 구분
+  
     <div>
-      
+       <h1><Link to="/">VINSINSA</Link></h1>
      {isLoggedIn ? IsManager ? <h>관리자입니다.</h> : state ? <h>판매자입니다.</h> : <h>구매자입니다.</h> : null}
     <div className={menu.header}>
         <div className={menu.Rlogo}>

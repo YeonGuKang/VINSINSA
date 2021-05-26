@@ -6,6 +6,7 @@ import { authService , dbService } from '../model/firebase';
 
 
 import "./style/style.css";
+import Header from "./Header"
 
 
 let mystate;
@@ -76,6 +77,8 @@ let Catego,id
 
 
 return(
+  <div>
+    <Header></Header>
     <div className="backwrap">
     <div className="mainform">
     <h1>판매완료품목</h1>
@@ -94,6 +97,7 @@ return(
       <h1>판매등록: {check ? My_info['판매등록목록'].length : null}</h1>
   </div>
       
+  </div>
   </div>
 
 );

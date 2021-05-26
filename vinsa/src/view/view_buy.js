@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect }
 
 
 import { authService , dbService } from '../model/firebase';
+import Header from "./Header"
 
 
 import "./style/style.css";
@@ -76,6 +77,8 @@ let Catego,id
 
 
 return(
+  <div>
+    <Header></Header>
     <div className="backwrap">
     <div className="mainform">
 
@@ -89,6 +92,7 @@ return(
       </div>
   </div>
       
+  </div>
   </div>
 
 );

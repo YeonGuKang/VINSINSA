@@ -160,25 +160,26 @@ const Category = () => {
 
     setchosen((prev) => [...boardArray, ...prev])
     settotal((prev) => [...boardArray, ...prev])
+
   });
 
 
   }, []);
 
-   // 객체 정보를 섞어주는 함수
-  function shuffle(sourceArray) {
-    for (var i = 0; i < sourceArray.length - 1; i++) {
-      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-
-      var temp = sourceArray[j];
-      sourceArray[j] = sourceArray[i];
-      sourceArray[i] = temp;
+     // 객체 정보를 섞어주는 함수
+     function shuffle(sourceArray) {
+      for (var i = 0; i < sourceArray.length - 1; i++) {
+        var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+  
+        var temp = sourceArray[j];
+        sourceArray[j] = sourceArray[i];
+        sourceArray[i] = temp;
+      }
+  
+      return sourceArray
     }
-
-    return sourceArray
-  }
-
-
+  
+ 
   // 사용자가 선택한 type에 맞게 데이터를 선택하는 함수
       const getChosen = async (event) => {
 
@@ -189,20 +190,20 @@ const Category = () => {
       // 아래 name으로 판단해서 chosen 객체에 앎맞는 데이터를 주입
       if(name == "Dress"){
 
-        setchosen(shuffle(dress))
+        setchosen(dress)
         setchosen_ranking(dress_ranking)
         setcategory("dress")
       
       } 
       else if(name == "jumper"){
 
-        setchosen(shuffle(jumper))
+        setchosen(jumper)
         setchosen_ranking(jumper_ranking)
         setcategory("jumper")
       }
       else if(name == "pants"){
 
-        setchosen(shuffle(pants))
+        setchosen(pants)
         setchosen_ranking(pants_ranking)
         setcategory("pants")
 
@@ -211,14 +212,14 @@ const Category = () => {
       else if(name == "shirts"){
 
 
-        setchosen(shuffle(shirts))
+        setchosen(shirts)
         setchosen_ranking(shirts_ranking)
         setcategory("shirts")
         
       }
       else if(name == "skirt"){
 
-        setchosen(shuffle(skirt))
+        setchosen(skirt)
         setchosen_ranking(skirt_ranking)
         setcategory("skirt")
 
@@ -227,7 +228,7 @@ const Category = () => {
       else if(name == "top"){
 
 
-        setchosen(shuffle(top))
+        setchosen(top)
         setchosen_ranking(top_ranking)
         setcategory("top")
         
@@ -235,7 +236,7 @@ const Category = () => {
       else
       {
         setchosen_ranking(null)
-        setchosen(shuffle(total))
+        setchosen(total)
       }
 
 }
@@ -339,26 +340,20 @@ const get_favorite = async(favoriteArray) =>{
                <div className={menu.LGbgr}> 
              <Header></Header>
              
+             <img src={mainimage} className={rec.mainimage}/>
               <div className={rec.WHbgr}>
-                
+             
                 <div className={rec.btnsection}>
               <div className={rec.ingredientbtn}>
                                                                             
               </div>
 
               <div className={rec.vegetarianbtn}>
-              <button onClick={getChosen} name="Dress" className={rec.catebtn}>Dress</button>
-                  <button onClick={getChosen} name="jumper" className={rec.catebtn}>jumper</button>
-                  <button onClick={getChosen} name="pants" className={rec.catebtn}>pants</button>
-                  <button onClick={getChosen} name="shirts" className={rec.catebtn}>shirts</button>
-                  <button onClick={getChosen} name="skirt" className={rec.catebtn}>skirt</button>
-                  <button onClick={getChosen} name="top" className={rec.catebtn}>top</button>
-                  <button onClick={getChosen} name="total" className={rec.catebtn}>전체보기</button>
-                  <button onClick={Show_favorite} name="total" className={rec.catebtn}>찜한목록보기</button>                                    
+                                            
                  </div>  
 
             <div className={rec.hashtagbtn}>
-                                                                                                                                                                                      
+                                                                                                                                                                             
             </div>
 
               </div>

@@ -237,7 +237,6 @@ const [myID,setmyID] = useState("");
                 <input type='file' onChange={image_upload2} />
                 <input type='file' onChange={image_upload3} />
                 <input type='file' onChange={image_upload4} />
-                <input type='file' onChange={image_upload5} />
   
              
                 </div>
