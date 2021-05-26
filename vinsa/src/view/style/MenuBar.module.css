@@ -29,6 +29,10 @@
     left : 60px;   
 }
 
+.logo2{
+    font-style: white;
+}
+
 /* 해당 css는 색을 직관적으로 표현하고 싶어 root 지정 안할 생각입니다. */
 
 .header{
