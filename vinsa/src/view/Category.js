@@ -384,9 +384,11 @@ const get_favorite = async(favoriteArray) =>{
                   <h2>{Show.price}</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
                   <h3>{"찜 : "+Show.찜}</h3>
+                       
+        <div className={rec.line}>HOT!</div>
                   </div>
               )) : null}
-      
+
               {/* chosen객체에 존재하는 모든 document에 대해서 Show로 각각 지정해주고 , 그 값들을 나열해준다. key값은 위에서 넣어준 id값 */}
               {chosen ? chosen.map((Show)=>(
                 <div >

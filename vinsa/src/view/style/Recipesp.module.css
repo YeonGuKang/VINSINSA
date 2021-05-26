@@ -110,6 +110,12 @@
     top:100px;
 }
 
+.line{
+    height: 50px;
+    background-color: aqua;
+}
+
+
 @keyframes fadein {
     from {
         opacity: 0;

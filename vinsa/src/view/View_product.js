@@ -215,9 +215,9 @@ const like = async (event) => {
                     minLength={100} />}
                 </div> 
                <img src={data ? data['img1'] : null} width='600px' height ='500px'/>
-                <img src={data ? data['img2'] : null} width='300px' height ='300px'/> 
-                <img src={data ? data['img3'] : null} width='300px' height ='300px'/> 
-              <img src={data ? data['img4'] : null} width='300px' height ='300px'/>
+                <img src={data ? data['img2'] : null} className={rec.subimage} width='300px' height ='300px'/> 
+                <img src={data ? data['img3'] : null} className={rec.subimage} width='300px' height ='300px'/> 
+              <img src={data ? data['img4'] : null} className={rec.subimage} width='300px' height ='300px'/>
      
 
                 
