@@ -70,7 +70,7 @@ const delete_user = async () =>{
       <Header></Header>
         <div className="backwrap">
         <div className="mainform">
-        <h1 onClick={delete_user}>유저 삭제</h1>
+          <h3>유저 정보</h3>
         <li>{User_info.id}</li>
         <li>{User_info.email}</li>
         <li>{User_info.birth}</li>
@@ -78,7 +78,7 @@ const delete_user = async () =>{
         <li>{User_info.sex}</li>
         <li>{User_info.address}</li>
         <li>{User_info.state}</li>
-    
+        <h1 onClick={delete_user}>유저 삭제</h1>
        
           <div className="authBtns">
           </div>

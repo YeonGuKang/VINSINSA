@@ -141,7 +141,7 @@ const onclick = async () => {
                 <div>
                     <textarea 
            
-                    className={regi.content_txt2} 
+                    className={regi.content_txt3} 
        
                     value={data['content']}
                     minLength={100} />

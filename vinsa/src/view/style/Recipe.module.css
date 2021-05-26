@@ -89,10 +89,15 @@
 .subimage{
     position: relative;
 
-    top: 150px;
-    left:50px;
+    top: 70px;
+    right: 50px;
     margin-left: 150px;
     
+}
+
+.detail{
+    position: relative;
+    top:40px;
 }
 
 .result {

@@ -6,6 +6,7 @@ import { authService , dbService } from '../model/firebase';
 
 
 import "./style/style.css";
+import Header from "./Header"
 
 
 let mystate;
@@ -134,15 +135,17 @@ let writer=""
 
 
     return(
+      <div>
+        <Header></Header>
         <div className="backwrap">
         <div className="mainform">
-        <li>{My_info.id}</li>
-        <li>{My_info.email}</li>
-        <li>{My_info.birth}</li>
-        <li>{My_info.name}</li>
-        <li>{My_info.address}</li>
-        <li>{data['price']}</li>
-        <li>{data['name']}</li>
+        <li>사용자 아이디 : {My_info.id}</li>
+        <li>사용자 이메일 : {My_info.email}</li>
+        <li>착신자 생일 : {My_info.birth}</li>
+        <li>착신자 이름 : {My_info.name}</li>
+        <li>배송주소 : {My_info.address}</li>
+        <li>상품가격 : {data['price']}</li>
+        <li>상품이름 : {data['name']}</li>
         <button onClick={buy_product}>구매하기</button>
    
     
@@ -161,7 +164,7 @@ let writer=""
                  <div>{check ? <Redirect from="/buy" to = "/Category" />: null}
                 </div>
      </div>
-
+     </div>
     );
     
 

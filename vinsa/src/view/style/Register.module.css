@@ -4,7 +4,7 @@
     position: relative;
     right:10vw;
     top : 25vh;
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     width : 92vw;
     height : 150vh;
@@ -44,6 +44,20 @@
 
 
 .content_txt2{
+    /* font-family: 'goldenpier', serif; */
+    position: relative;
+    right: 150px;
+    border: none;
+    resize: none;
+    width:40vw;
+    height: 60vh;
+    float: right;
+    font-size: 20px;
+    left: 30px
+}
+
+
+.content_txt3{
     /* font-family: 'goldenpier', serif; */
     position: relative;
     right: 150px;
