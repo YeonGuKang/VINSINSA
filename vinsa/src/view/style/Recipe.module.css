@@ -7,7 +7,7 @@
     left : 7vw;
     width : 92vw;
     height: 85vh;
-    background-color:  #537f46;
+    background-color:  #212121;
     display : flex;
 }
 
@@ -18,9 +18,9 @@
 }
 :root{
     --text-color: #f0f4f5;
-    --background-color: #28421f;
+    --background-color: #d3d3d3;
     --header-background: #ffffff;
-    --main-color: #537f46;
+    --main-color: #212121;
 }
 .header{
     position : relative;
