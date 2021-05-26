@@ -28,6 +28,7 @@ const View_product = () => {
 
   // 게시글이 작성되었나 확인
   const [check, setcheck] =useState(false);
+  const [like_check, setlike_check] =useState(false);
   const [data, setdata] =useState([]);
   const [imageurl1,setimageurl1]=useState("");
   const [imageurl2,setimageurl2]=useState("");
@@ -65,6 +66,11 @@ const View_product = () => {
     Catego = window.location.href.split("/")[4]
     Catego = decodeURI(Catego)
     id = window.location.href.split("/")[5]
+    if(id[id.length-1]=="?")
+    {
+      id=id.slice(0,id.length-1)
+      console.log(id)
+    }
     id=decodeURI(id)
     setid(id);
     sethookCatego(Catego)
@@ -79,22 +85,9 @@ const View_product = () => {
     docRef.get().then(async function(doc) {  setdata(doc.data())
 
   
-      setcheck(true)
+    setcheck(true)
   
-    var storage = dbstorage;
-    var storageRef = storage.ref();
-    var imageRef1 = storageRef.child(title+"1");
-    var imageRef2 = storageRef.child(title+"2");
-    var imageRef3 = storageRef.child(title+"3");
-    var imageRef4 = storageRef.child(title+"4");
-    var imageRef5 = storageRef.child(title+"5");
 
-    setimageurl1(await imageRef1.getDownloadURL())
-    setimageurl2(await imageRef2.getDownloadURL())
-    setimageurl3(await imageRef3.getDownloadURL())
-    setimageurl4(await imageRef4.getDownloadURL())
-    setimageurl5(await imageRef5.getDownloadURL())
-    
     });
 
   
@@ -103,34 +96,61 @@ const View_product = () => {
 
 
 // 좋아요 함수
-const like = async () => {
+const like = async (event) => {
 
-  const temp = authService.currentUser.email.split("@")[0]
-  // 현재 해당유저의 좋아요 정보를 가져옴
-  const res = await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).get();
+  event.preventDefault();
+ 
 
-  const data = {
-        like : true
-        };
+    // url로 넘어온 본인 state를 얻음
+    Catego = window.location.href.split("/")[4]
+    Catego = decodeURI(Catego)
+    id = window.location.href.split("/")[5]
+    if(id[id.length-1]=="?")
+    {
+      id=id.slice(0,id.length-1)
+      console.log(id)
+    }
+    id=decodeURI(id)
+    setid(id);
+    sethookCatego(Catego)
 
-        
-      //  현재 타입의 레시피 like 정보를 가져옴
-      const type_data =  await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).get();
-      let current_like = type_data.data().찜
+    console.log(Catego)
+    console.log(id)
+    //   사용자가 선택한 게시글에 맞게 데이터를 불러옴
+    const docRef = await dbService.collection('category').doc('category').collection(Catego).doc(id)
+
+    let title;
+    // 콘솔 확인해보면 해당 데이터 잘가져왔음! 훅으로 객체에 넣어서 사용할것!
+    docRef.get().then(async function(doc) {  setdata(doc.data())
+
+
+    const temp = authService.currentUser.email.split("@")[0]
+    // 현재 해당유저의 좋아요 정보를 가져옴
+    const res = await dbService.collection('user').doc(temp).collection('좋아요').doc(doc.data()['name']).get();
+
+    console.log(doc.data()['name']);
+
+    const data = {
+          like : true
+          };
+
+            //  현재 타입의 레시피 like 정보를 가져옴
+    const type_data =  await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).get();
+    let current_like = type_data.data().찜
 
     // 만약에 해당 레시피의 좋아요를 이미 누른경우
     if(res.data()!=undefined)
       {
       // 확인을 누르면 실행
-      if(window.confirm('이미 좋아요 한 레시피입니다! 좋아요를 취소 하시겠습니까?')){
+      if(window.confirm('이미 찜 한 의류입니다! 찜을 취소 하시겠습니까?')){
         // 좋아요에서 해당하는 레시피를 삭제
-        await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).delete();
+        await dbService.collection('user').doc(temp).collection('좋아요').doc(doc.data()['name']).delete();
 
         // merge와 현재 type 레시피의 like를 1씩 뺌
         await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like - 1});
 
 
-        alert('좋아요가 삭제 되었습니다!')
+        alert('찜이 삭제 되었습니다!')
         }
       }
     // 좋아요를 누른적이 없을 경우 실행
@@ -145,11 +165,17 @@ const like = async () => {
      // await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
 
 
-      await dbService.collection('user').doc(temp).collection('좋아요').doc(data['name']).set(data)
+      await dbService.collection('user').doc(temp).collection('좋아요').doc(doc.data()['name']).set(data)
 
-      alert('좋아요가 완료 되었습니다!')
+      // merge와 현재 type 레시피의 like를 1씩 뺌
+      await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
+
+      alert('찜이 완료 되었습니다!')
+      
       }
 
+      });
+   
 }
 
 
@@ -165,19 +191,19 @@ const like = async () => {
               
                 <div className = {regi.Write}>
                 <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
-                <button onClick={like}>추천하기!</button>
+                <button onClick={like}>찜해두기</button>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
                     <input 
                     type = 'text'
-                    value={data['name']}
-                    maxLength={10} />
+                    value={data ? data['name'] : null}
+                    maxLength={10} /> 
                      <input 
                
                     type = 'text'
-                    value={data['price']}
+                    value={data ? data['price'] : null}
                 
                     readOnly
-                    maxLength={10} />
+                    maxLength={10} /> 
                 </div>
 
                 <div>{
@@ -185,13 +211,14 @@ const like = async () => {
            
                     className={regi.content_txt} 
                     readOnly
-                    value={data['content']}
+                    value={data ? data['content'] : null}
                     minLength={100} />}
-                </div>
-                <img src={data['img1']} width='300px' height ='300px'/>
-                <img src={data['img2']} width='300px' height ='300px'/>
-                <img src={data['img3']} width='300px' height ='300px'/>
-                <img src={data['img4']} width='300px' height ='300px'/>
+                </div> 
+               <img src={data ? data['img1'] : null} width='300px' height ='300px'/>
+                <img src={data ? data['img2'] : null} width='300px' height ='300px'/> 
+                <img src={data ? data['img3'] : null} width='300px' height ='300px'/> 
+              <img src={data ? data['img4'] : null} width='300px' height ='300px'/>
+     
 
                 
             </form>
