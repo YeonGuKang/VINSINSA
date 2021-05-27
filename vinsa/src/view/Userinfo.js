@@ -70,15 +70,36 @@ const delete_user = async () =>{
       <Header></Header>
         <div className="backwrap">
         <div className="mainform">
-          <h3>유저 정보</h3>
-        <li>{User_info.id}</li>
-        <li>{User_info.email}</li>
-        <li>{User_info.birth}</li>
-        <li>{User_info.name}</li>
-        <li>{User_info.sex}</li>
-        <li>{User_info.address}</li>
-        <li>{User_info.state}</li>
-        <h1 onClick={delete_user}>유저 삭제</h1>
+
+        <h2 align="center">유저 정보 조회하기</h2>
+        <table width="463px" height="300px" border="1px">
+          <tbody>
+            <tr>
+              <td width="100px"><h4>&nbsp;아이디</h4></td><td>&nbsp;{User_info.id}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;이메일</h4></td><td>&nbsp;{User_info.email}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;생일</h4></td><td>&nbsp;{User_info.birth}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;이름</h4></td><td>&nbsp;{User_info.name}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;성별</h4></td><td>&nbsp;{User_info.sex}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;주소</h4></td><td>&nbsp;{User_info.address}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;구분</h4></td><td>&nbsp;{User_info.state}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h3 onClick={delete_user} align="center">유저 삭제하기</h3>
        
           <div className="authBtns">
           </div>
