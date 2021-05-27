@@ -32,7 +32,7 @@
     justify-content: space-around;
     top : 20vh;
     border-radius: 20px;
-    align-items: center;
+    align-items: left;
 
 }
 
@@ -64,7 +64,7 @@
 
 .authBtn {
     margin: 1vw;
-    font-family: 'goldenpier', serif;
+    /* font-family: 'goldenpier', serif; */
     width: 100%;
     cursor: pointer;
     border-top-left-radius : 10px;

@@ -146,7 +146,7 @@ let writer=""
         <li>배송주소 : {My_info.address}</li>
         <li>상품가격 : {data['price']}</li>
         <li>상품이름 : {data['name']}</li>
-        <button onClick={buy_product}>구매하기</button>
+        <h1 onClick={buy_product}>구매하기</h1>
    
     
         {All_info.map((Show)=>(

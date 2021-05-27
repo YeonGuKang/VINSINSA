@@ -183,7 +183,7 @@ div > img.slideimg {
 
 /* 하단 슬라이드 글씨 작업 */
 .more{
-    font-family: 'Song Myung', serif;
+    /* font-family: 'Song Myung', serif; */
     position: absolute;
     bottom: 150%;
     z-index: 2;

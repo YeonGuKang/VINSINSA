@@ -175,7 +175,8 @@ const like = async (event) => {
       }
 
       });
-   
+
+   setlike_check(true)
 }
 
 
@@ -194,7 +195,7 @@ const like = async (event) => {
                   <h1>{data ? data['name'] : null}</h1>
                   <h1>{data ? data['price'] : null}원</h1>
                          <button className={rec.productbtn}><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
-                <button onClick={like} className={rec.productbtn} >찜해두기</button>
+                <button onClick={like} className={rec.productbtn} >찜   {data ? data['찜'] : null}</button>
                 </div>
 
                 <div>{
