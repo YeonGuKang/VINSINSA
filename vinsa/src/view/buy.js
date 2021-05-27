@@ -102,6 +102,7 @@ let writer=""
         console.log(productid)
         const docRef = await dbService.collection('category').doc('category').collection(productcate).doc(productid)
 
+    
         docRef.get().then( async function(doc) { 
           writer = doc.data()['writer']
           console.log(writer)
@@ -117,6 +118,7 @@ let writer=""
         console.log(t_data)
         
         await dbService.collection('user').doc(writer).update({"판매완료목록" : t_data})
+        const docRef = await dbService.collection('category').doc('category').collection(productcate).doc(productid).update({'soldout' : 'O'})
 
 
         });

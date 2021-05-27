@@ -59,23 +59,6 @@ let Catego,id
   }, []);
 
 
-  // const buy_product = async () => {
-  //   if(window.confirm('상품을 구매하시겠습니까?')){
-  //       console.log(Catego)
-  //       console.log(data['name'])
-  //       console.log(data)
-        
-  //       My_info['구매목록'].push(data['name'])
-  //       await dbService.collection('user').doc(myID).update({"구매목록" : My_info["구매목록"]})
-
-  //       alert("구매가 완료되었습니다!")
-
-  //       setcheck(true)
-
-  //   }
-  // }
-
-
 return(
   <div>
     <Header></Header>
