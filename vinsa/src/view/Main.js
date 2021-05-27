@@ -379,6 +379,7 @@ const get_favorite = async(favoriteArray) =>{
                   <h2>{Show.price}</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
                   <h3>{"찜 : "+Show.찜}</h3>
+                  <div className={rec.line}>   </div>
                   </div>
               )) : null}
       
@@ -395,7 +396,7 @@ const get_favorite = async(favoriteArray) =>{
                   <h2>{Show.price}</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
                   <h3>{"찜 : "+Show.찜}</h3>
-            
+                  <div className={rec.line}>   </div>
                   </div>
               )) : null}
             </div>
