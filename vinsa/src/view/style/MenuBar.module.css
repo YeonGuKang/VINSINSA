@@ -35,7 +35,10 @@
 
 .logo2{
     color: white;
-    
+}
+
+.user_delete_color > a{
+    color: red;
 }
 
 .backg{
