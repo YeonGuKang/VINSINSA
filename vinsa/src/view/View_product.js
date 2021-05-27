@@ -191,19 +191,10 @@ const like = async (event) => {
               
                 <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
-                    <input 
-                    type = 'text'
-                    value={data ? data['name'] : null}
-                    maxLength={10} /> 
-                     <input 
-               
-                    type = 'text'
-                    value={data ? data['price'] : null}
-                
-                    readOnly
-                    maxLength={10} /> 
-                         <button><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
-                <button onClick={like}>찜해두기</button>
+                  <h1>{data ? data['name'] : null}</h1>
+                  <h1>{data ? data['price'] : null}원</h1>
+                         <button className={rec.productbtn}><Link to={"/buy/" + hookCatego + "/" + userid}>구매하기</Link></button>
+                <button onClick={like} className={rec.productbtn} >찜해두기</button>
                 </div>
 
                 <div>{
