@@ -103,23 +103,35 @@ const Loginform = () => {
         <Header></Header>
       <div className="backwrap">
       <div className="mainform2">
-    
-      ID<br></br>
+
+ <br></br>
+      <h1> 로그인 </h1>
+        <br></br>
+      <h3>ID</h3>
       <input onChange={onChange_id} type="text" value={id}/>
-      <br></br>
-      비밀번호<br></br>
+      <h3>비밀번호</h3>
       <input onChange={onChange_password} type="password"  value={password}/>
       <br></br>
+      <br></br>
 
-      <button onClick={onclick} >
-              로그인
-                </button>
+
      
         <div className="authBtns">
-        <li><Link to="/Joinform">회원가입</Link></li>
-             <button className="authBtn" onClick={onSocialClick} name="Google">
-              구글 계정으로 계속하기
-            </button>
+
+
+        <button className="authBtn" onClick={onclick} name="Login">
+              로그인
+        </button>
+        <button className="authBtn" onClick={onSocialClick} name="Google">
+              구글 계정으로 로그인
+        </button>
+        <button className="authBtn" name="Join">
+              <div className="joinButtonColor">
+                <Link to="/Joinform">회원가입</Link>
+              </div>
+        </button>
+
+
         </div>
    </div>
    <div>{isLoggedIn ? <Redirect from="/Loginform" to = {history.goBack()} />: null}</div>
