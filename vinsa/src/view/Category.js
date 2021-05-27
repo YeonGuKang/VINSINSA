@@ -386,6 +386,8 @@ const get_favorite = async(favoriteArray) =>{
                   <h3>{"찜 : "+Show.찜}</h3>
                        
         <div className={rec.line}>   </div>
+        <div className={rec.line}>   </div>
+        <div className={rec.line}>   </div>
                   </div>
               )) : null}
 
