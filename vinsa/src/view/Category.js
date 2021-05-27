@@ -375,13 +375,13 @@ const get_favorite = async(favoriteArray) =>{
             {chosen_ranking ? chosen_ranking.map((Show)=>(
                 <div >
                   <h4 className={rec.hot} align='center'>HOT</h4>
-                  <h1><Link to={"/View_product/" + Show.category + "/" +Show.id}>{Show.name}</Link></h1>
+                  <h1 align='center'><Link to={"/View_product/" + Show.category + "/" +Show.id}>{Show.name}</Link></h1>
                   <Link to={"/View_product/" + Show.category + "/" +Show.id}><img
                     src={ Show.img1 }
                     width='300px'
                     height='300vh'
                  /></Link>
-                  <h2>{Show.price}</h2>
+                  <h2>{Show.price}원</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
                   <h3>{"찜 : "+Show.찜}</h3>
                        
@@ -395,13 +395,13 @@ const get_favorite = async(favoriteArray) =>{
               {chosen ? chosen.map((Show)=>(
                 <div >
                 
-                  <h1><Link to={"/View_product/" + Show.category + "/" +Show.id}>{Show.name}</Link></h1>
+                  <h1 align='center'><Link to={"/View_product/" + Show.category + "/" +Show.id}>{Show.name}</Link></h1>
                   <Link to={"/View_product/" + Show.category + "/" +Show.id}><img
                     src={ Show.img1 }
                     width='300px'
                     height='300vh'
                  /></Link>
-                  <h2>{Show.price}</h2>
+                  <h2>{Show.price}원</h2>
                   <h3>{"품절 : "+Show.soldout}</h3>
                   <h3>{"찜 : "+Show.찜}</h3>
                   <div className={rec.line}>   </div>

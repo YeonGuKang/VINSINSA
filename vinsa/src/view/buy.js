@@ -141,16 +141,35 @@ let writer=""
         <Header></Header>
         <div className="backwrap">
         <div className="mainform">
-        <li>사용자 아이디 : {My_info.id}</li>
-        <li>사용자 이메일 : {My_info.email}</li>
-        <li>착신자 생일 : {My_info.birth}</li>
-        <li>착신자 이름 : {My_info.name}</li>
-        <li>배송주소 : {My_info.address}</li>
-        <li>상품가격 : {data['price']}</li>
-        <li>상품이름 : {data['name']}</li>
-        <h1 onClick={buy_product}>구매하기</h1>
-   
-    
+
+        <h2 align="center">결제 정보 확인</h2>
+        <table width="463px" height="300px" border="1px">
+          <tbody>
+            <tr>
+              <td width="100px"><h4>&nbsp;이름</h4></td><td>&nbsp;{My_info.name}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;아이디</h4></td><td>&nbsp;{My_info.id}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;이메일</h4></td><td>&nbsp;{My_info.email}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;주소</h4></td><td>&nbsp;{My_info.address}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;상품명</h4></td><td>&nbsp;{data['name']}</td>
+            </tr>
+            <tr>
+              <td><h4>&nbsp;결제 금액</h4></td><td>&nbsp;{data['price']}</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br></br>
+        <h1 onClick={buy_product} align="center"><Link to="/view_buy">구매하기</Link></h1>
+
         {All_info.map((Show)=>(
          
                 <li><Link to={"/Userinfo"+"/"+Show.id}>{Show.id}</Link></li>
