@@ -55,7 +55,7 @@ const Category = () => {
 
   const [Search_name,setSearch_name] = useState("");
 
-  const [mainimage,setmainimage] = useState("https://user-images.githubusercontent.com/37290818/119679402-4a325700-be7b-11eb-915b-420f154d1b54.png");
+  const [mainimage,setmainimage] = useState("https://user-images.githubusercontent.com/37769713/119816772-12cdb400-bf28-11eb-9887-873fd1b4ac76.jpg");
 
 
 

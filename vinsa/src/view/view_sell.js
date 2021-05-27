@@ -85,7 +85,7 @@ return(
       )) : null}
       </tbody>
     </table>
-    <h3>판매 완료 수: {check ? My_info['판매완료목록'].length : null}</h3>
+    <h3>&nbsp;판매 완료 수: {check ? My_info['판매완료목록'].length : null}</h3>
     <br></br>
 
     <h2 align="center">판매 등록 목록</h2>
@@ -111,7 +111,7 @@ return(
       </div>
 
 
-      <h3>판매 등록 수: {check ? My_info['판매등록목록'].length : null}</h3>
+      <h3>&nbsp;판매 등록 수: {check ? My_info['판매등록목록'].length : null}</h3>
   </div>
       
   </div>
