@@ -161,9 +161,7 @@ const like = async (event) => {
           current_like = 0;
         }
 
-      //  merge와 해당 type의 레시피 like를 1씩증가
-     // await dbService.collection('category').doc('category').collection(hookCatego).doc(userid).update({찜 : current_like + 1});
-
+  
 
       await dbService.collection('user').doc(temp).collection('좋아요').doc(doc.data()['name']).set(data)
 

@@ -28,7 +28,7 @@ const Category = () => {
   const [IsManager, setIsManger] = useState(false);
    
   // 파이어베이스에서 데이터를 가져오는 과정
-  // 각각 채식 type에 맞게 데이터를 불러오기 위함
+  // 각각 type에 맞게 데이터를 불러오기 위함
   const [dress, setdress] = useState([]);
   const [jumper, setjumper] = useState([]);
   const [pants, setpants] = useState([]);
@@ -83,7 +83,7 @@ const Category = () => {
     settotal([])
     setchosen([])
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+   
    dbService.collection("category").doc('category').collection('dress').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -97,7 +97,7 @@ const Category = () => {
     settotal((prev) => [...boardArray, ...prev])
   });
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+
    dbService.collection("category").doc('category').collection('jumper').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -110,7 +110,7 @@ const Category = () => {
     settotal((prev) => [...boardArray, ...prev])
   });
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+
    dbService.collection("category").doc('category').collection('pants').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -123,7 +123,7 @@ const Category = () => {
     settotal((prev) => [...boardArray, ...prev])
   });
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+
    dbService.collection("category").doc('category').collection('shirts').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -136,7 +136,7 @@ const Category = () => {
     settotal((prev) => [...boardArray, ...prev])
   });
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+
    dbService.collection("category").doc('category').collection('skirt').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -149,7 +149,7 @@ const Category = () => {
     settotal((prev) => [...boardArray, ...prev])
   });
 
-   // 첫 화면에 merge에서 가져온 값을 나타냄
+
    dbService.collection("category").doc('category').collection('top').orderBy("찜", "desc").onSnapshot((snapshot) => {
     const boardArray = snapshot.docs.map((doc) => ({
       id: doc.id,
@@ -158,8 +158,8 @@ const Category = () => {
     settop(boardArray)
     settop_ranking(boardArray.slice(0,4))
 
-    setchosen((prev) => [...boardArray, ...prev])
-    settotal((prev) => [...boardArray, ...prev])
+    setchosen((prev) => shuffle([...boardArray, ...prev]))
+    settotal((prev) => shuffle([...boardArray, ...prev]))
 
   });
 
@@ -279,7 +279,7 @@ const Category = () => {
     }
     else
     {
-    // 넣은 값들을 chosen과 limit_boards에 set 페이지도 1로 다시 set
+  
     setchosen(temp);
     }
 
@@ -307,7 +307,7 @@ const Show_favorite = async(event) =>{
     const favoriteArray = snapshot.docs.map((doc) => ({
       id : doc.id
     }));
-    // 즐겨찾기 해놓은 모든 레시피에 대해서 실행
+    // 즐겨찾기 해놓은 모든 대해서 실행
      while(favoriteArray.length)
      {
       //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수를 실행
@@ -321,7 +321,7 @@ const Show_favorite = async(event) =>{
 
  //  즐겨찾기 해놓은 이름을 기반으로 객체를 넣어주는 함수
 const get_favorite = async(favoriteArray) =>{
-  // 즐겨찾기 해놓은 레시피 이름을 저장
+  // 즐겨찾기 해놓은  이름을 저장
   const id=favoriteArray.pop()
   total.map((name)=>(
     stringVal = name.name,

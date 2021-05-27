@@ -89,20 +89,6 @@ const View_board = () => {
 
 
 
-    // const reader = new FileReader();
-
-    // // Get metadata properties
-    // imageRef.getMetadata().then(function(metadata) {
-
-    //   reader.onloadend = (finishedEvent) => {
-    //     console.log(finishedEvent)
-    //   }
-
-    //   reader.readAsDataURL(metadata)
-    // }).catch(function(error) {
-    //   // Uh-oh, an error occurred!
-    // });
-
 
   }, []);
 
