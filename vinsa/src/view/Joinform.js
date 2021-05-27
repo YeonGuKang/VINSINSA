@@ -36,10 +36,25 @@ const Joinform = () => {
     })
     });
 
+const id_overlap_check = () => {
+
+  let i=0;
+  while(i < temp.length)
+  {
+    if (temp[i]['id'] == id) {
+      alert("이미 존재하는 ID입니다.")
+      break
+    }
+    i++
+  }
+  if(i == temp.length)
+      alert("사용가능한 ID입니다.")
+
+}
+  
 
    // 버튼 클릭이 있을때 게시글을 추가해줌
-   const signUp = async () => {
-
+   const signUp = async (event) => {
 
     const data = {
       id: id,
@@ -65,22 +80,6 @@ const Joinform = () => {
 
     console.log(data)
 }
-
-  const id_overlap_check = () => {
-
-    let i=0;
-    while(i < temp.length)
-    {
-      if (temp[i]['id'] == id) {
-        alert("이미 존재하는 ID입니다.")
-        break
-      }
-      i++
-    }
-    if(i == temp.length)
-        alert("사용가능한 ID입니다.")
-
-  }
 
 
   
