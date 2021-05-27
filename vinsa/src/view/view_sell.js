@@ -70,7 +70,7 @@ return(
 
 
     <h2 align="center">판매 완료 목록</h2>
-    <table width="463px" height="300px" border="1px">
+    <table width="463px" height="auto" border="1px">
       <thead>
         <tr>
           <th>상품명</th>
@@ -89,7 +89,7 @@ return(
     <br></br>
 
     <h2 align="center">판매 등록 목록</h2>
-    <table width="463px" height="60px" border="1px">
+    <table width="463px" height="auto" border="1px">
       <thead>
         <tr>
           <th>상품명</th>
@@ -100,6 +100,7 @@ return(
         <tr>
           <td align="center">&nbsp;{Show}</td>
         </tr>
+     
       )) : null}
       </tbody>
     </table>
