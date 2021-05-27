@@ -67,20 +67,50 @@ return(
     <Header></Header>
     <div className="backwrap">
     <div className="mainform">
-    <h3>판매완료품목</h3>
-    {check ? My_info['판매완료목록'].map((Show)=>(
-            <li>{Show}</li>
-      )):null }
-    
-      <div className="authBtns">
-          <h3>판매등록품목</h3>
-      {check ? My_info['판매등록목록'].map((Show)=>(
-            <li>{Show}</li>
-      )):null }
 
+
+    <h2 align="center">판매 완료 목록</h2>
+    <table width="463px" height="300px" border="1px">
+      <thead>
+        <tr>
+          <th>상품명</th>
+        </tr>
+      </thead>
+      <tbody>
+      {check ? My_info['판매완료목록'].map((Show)=>(
+
+        <tr>
+          <td align="center">&nbsp;{Show}</td>
+        </tr>
+      )) : null}
+      </tbody>
+    </table>
+    <h3>판매 완료 수: {check ? My_info['판매완료목록'].length : null}</h3>
+    <br></br>
+
+    <h2 align="center">판매 등록 목록</h2>
+    <table width="463px" height="60px" border="1px">
+      <thead>
+        <tr>
+          <th>상품명</th>
+        </tr>
+      </thead>
+      <tbody>
+      {check ? My_info['판매등록목록'].map((Show)=>(
+        <tr>
+          <td align="center">&nbsp;{Show}</td>
+        </tr>
+      )) : null}
+      </tbody>
+    </table>
+
+
+
+      <div className="authBtns">
       </div>
-      <h3>판매완료: {check ? My_info['판매완료목록'].length : null}</h3>
-      <h3>판매등록: {check ? My_info['판매등록목록'].length : null}</h3>
+
+
+      <h3>판매 등록 수: {check ? My_info['판매등록목록'].length : null}</h3>
   </div>
       
   </div>
