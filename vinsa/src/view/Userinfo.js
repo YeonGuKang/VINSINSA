@@ -71,11 +71,11 @@ const delete_user = async () =>{
         <div className="backwrap">
         <div className="mainform">
 
-        <h2 align="center">유저 정보 조회하기</h2>
+        <h2 align="center">유저 정보 조회</h2>
         <table width="463px" height="300px" border="1px">
           <tbody>
             <tr>
-              <td width="100px"><h4>&nbsp;아이디</h4></td><td>&nbsp;{User_info.id}</td>
+              <td width="130px"><h4>&nbsp;아이디</h4></td><td>&nbsp;{User_info.id}</td>
             </tr>
             <tr>
               <td><h4>&nbsp;이메일</h4></td><td>&nbsp;{User_info.email}</td>
@@ -98,8 +98,7 @@ const delete_user = async () =>{
           </tbody>
         </table>
 
-
-        <h3 onClick={delete_user} align="center">유저 삭제하기</h3>
+        <h3 className={menu.user_delete_color} onClick={delete_user} align="right"><Link to="/Myinfo/운영자">유저 삭제하기&nbsp;</Link></h3>
        
           <div className="authBtns">
           </div>
