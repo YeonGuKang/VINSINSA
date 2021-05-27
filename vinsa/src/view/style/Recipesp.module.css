@@ -43,7 +43,7 @@
 
 
 .result {
-    /* 결과 레시피들을 각각 감싸는 하얀색 네모 */
+    /* 결과들을 각각 감싸는 하얀색 네모 */
     padding  : 0.5vw;
     margin : 1vw;
     z-index: 2;
@@ -62,7 +62,7 @@
 }
 
 .Rtitle {
-    /* result에 있는 레시피들의 이름 크기 설정 */
+    /* result에 있는 이름 크기 설정 */
     font-size: 30px;
     font-weight: bolder;
     margin-top: 1vh;
@@ -79,7 +79,6 @@
     margin-top: 1vh;
     margin-bottom: 1vh;
 }
-/* 비건 단계 버튼에 그림자 효과 */
 .vegetarianbtn :hover, .hashtagbtn>img:hover, .bookmark>img:hover {            
     filter: saturate(150%) drop-shadow(5px 5px 5px #CCCCCC);
     transition-duration: 0.5s;
@@ -166,7 +165,7 @@
 }
 
 .btnsection {
-    /* 새로 만든 클래스입니다. 버튼의 배열만을 위한 클래스.  */
+    /* 새로 만든 클래스입니다.  배열만을 위한 클래스.  */
     /* background-color: yellow; */
     width: 63vw;
     height: 30vh;
@@ -176,7 +175,7 @@
 }
 
 .ingredientbtn {
-    /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width : 50vw;
     position : relative;
     display: flex;
@@ -189,7 +188,7 @@
 }
 
 .vegetarianbtn {
-    /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width : 63.5vw;
     position : relative;
     display : flex;
@@ -202,7 +201,7 @@
 }
 
 .hashtagbtn {
-    /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width: 63.4vw;
     position : relative;
     display: flex;
@@ -377,7 +376,7 @@
     }
 
     .sectionplace {
-        /* 진한초록배경 앞에 위치해서 레시피들 정렬하는 클래스 */
+        /* 진한초록배경 앞에 위치해서  정렬하는 클래스 */
         position : relative;
         width : 92%;
         margin-top: 1vh;
@@ -391,7 +390,7 @@
     }
 
     .result {
-        /* 결과 레시피들을 각각 감싸는 하얀색 네모 */
+        /* 결과들을 각각 감싸는 하얀색 네모 */
         padding  : 8.75px;
         margin : 12.8px;
         z-index: 2;
@@ -425,7 +424,7 @@
     }
 
     .ingredientbtn {
-        /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+        /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 660px;
         position : relative;
         display: flex;
@@ -437,7 +436,7 @@
     }
 
     .vegetarianbtn {
-        /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+        /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 833.3333333333335px;
         position : relative;
         display : flex;
@@ -449,7 +448,7 @@
     }
 
     .hashtagbtn {
-        /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+        /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 832px;
         position : relative;
         display: flex;
@@ -515,7 +514,7 @@
     }
 
     .sectionplace {
-        /* 진한초록배경 앞에 위치해서 레시피들 정렬하는 클래스 */
+        /* 진한초록배경 앞에 위치해서 정렬하는 클래스 */
         position : relative;
         width : 92%;
         margin-top: 9px;
@@ -545,7 +544,7 @@
     }
 
     .ingredientbtn {
-        /* 재료 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+        /* 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width : 50vw;
         position : relative;
         display: flex;
@@ -554,7 +553,7 @@
     }
 
     .vegetarianbtn {
-    /* 채식 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+    /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
     width : 63.5vw;
     position : relative;
     display : flex;
@@ -563,7 +562,7 @@
     }
 
     .hashtagbtn {
-        /* 해시태그 버튼을 감싸고 있는 큰 클래스. 배열을 위해 존재함. */
+        /*  감싸고 있는 큰 클래스. 배열을 위해 존재함. */
         width: 63.4vw;
         position : relative;
         display: flex;

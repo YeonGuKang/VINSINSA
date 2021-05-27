@@ -112,8 +112,8 @@ const onclick = async () => {
                   <h1>{data ? data['price'] : null}원</h1>
                   
 
-                           <button ><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>
-                           <button onClick={onclick}>
+                           <button className={rec.productbtn} ><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>
+                           <button onClick={onclick} className={rec.productbtn}>
                 삭제하기
                 </button>
                 </div>
@@ -121,15 +121,16 @@ const onclick = async () => {
                 <div>
                     <textarea 
            
-                    className={regi.content_txt3} 
+                    className={regi.content_txt2} 
        
                     value={data ? data['content'] : null}
                     minLength={100} />
                 </div>
                 <img src={imageurl1 ? imageurl1 : null} width='600px' height ='500px'/>
-                <img src={imageurl2 ? imageurl2 : null} width='300px' height ='300px'/>
-                <img src={imageurl3 ? imageurl3 : null} width='300px' height ='300px'/>
-                <img src={imageurl4 ? imageurl4 : null} width='300px' height ='300px'/>
+                <h1 className={rec.detail}>상세사진</h1>
+                <img src={imageurl2 ? imageurl2 : null} className={rec.subimage} width='300px' height ='300px'/>
+                <img src={imageurl3 ? imageurl3 : null} className={rec.subimage} width='300px' height ='300px'/>
+                <img src={imageurl4 ? imageurl4 : null} className={rec.subimage} width='300px' height ='300px'/>
             </form>  
             <div>
         </div>

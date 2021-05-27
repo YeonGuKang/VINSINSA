@@ -58,7 +58,6 @@
 }
 
 .section { 
-    /* 선택 레시피가 나오면 배치되는 영역 */
     z-index: 1;
     background-color : var(--background-color);
     width : 92vw;
@@ -71,7 +70,7 @@
 }
 
 .sectionplace {
-    /* 섹션안에 위치하면서 레시피의 배열을 정해주는 클래스 */
+    /* 섹션안에 위치하면서 배열을 정해주는 클래스 */
     position : relative;
     width : 92vw;
     margin-top: 1vh;
@@ -101,7 +100,7 @@
 }
 
 .result {
-    /* 레시피를 개별로 감싸주는 하얀색 사각형 */
+    /*  개별로 감싸주는 하얀색 사각형 */
     padding  : 0.5vw;
     margin : 1vw;
     z-index: 2;
@@ -137,7 +136,6 @@
 
 
 .Rtitle {
-    /* 레시피 이름 */
     font-size: 1.6rem;
     font-weight: bold;
     margin-top: 1vh;
