@@ -71,7 +71,7 @@ const id_overlap_check = () => {
     }
 
     await dbService.collection("user").doc(id).set(data);
-    const data2 =  authService.createUserWithEmailAndPassword(
+    await authService.createUserWithEmailAndPassword(
         id+"@naver.com",
         password
     )
