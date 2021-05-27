@@ -83,7 +83,7 @@ const Header = () => {
   
     <div className={menu.backg}>
        <h1 className={menu.logo2}><Link to="/">&nbsp;VINSINSA</Link></h1>
-     {isLoggedIn ? IsManager ? <h className={menu.logo2}>&nbsp;&nbsp;관리자입니다.</h> : state ? <h className={menu.logo2}>&nbsp;&nbsp;판매자입니다.</h> : <h className={menu.logo2}>&nbsp;&nbsp;구매자입니다.</h> : null}
+     {isLoggedIn ? IsManager ? <h className={menu.logo2} >&nbsp;&nbsp;관리자입니다.</h> : state ? <h className={menu.logo2}>&nbsp;&nbsp;판매자입니다.</h> : <h className={menu.logo2}>&nbsp;&nbsp;구매자입니다.</h> : null}
     <div className={menu.header}>
         <div className={menu.Rlogo}>
         
