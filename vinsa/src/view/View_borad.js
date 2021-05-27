@@ -107,9 +107,12 @@ const View_board = () => {
   }, []);
 
 const onclick = async () => {
-
-  await dbService.collection('board').doc('seller_board').collection("seller_board").doc(userid).delete()
   setcheck(true)
+  if(window.confirm("정말로 삭제하시겠습니까?")){
+      await dbService.collection('board').doc('seller_board').collection("seller_board").doc(userid).delete()
+
+      alert("삭제가 완료되었습니다.")
+  }
 }
     return (
       <div className={rec.wrap}> 
@@ -119,19 +122,10 @@ const onclick = async () => {
           <div className = {regi.middle}>
             <form className = {regi.registerform}>
                 <div className = {regi.Write}>
-                  {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
-                    <input 
-           
-                    type = 'text'
-                    value={data['name']}
-                    maxLength={10} />
-                     <input 
-               
-                    type = 'text'
-                    value={data['price']}
-                
-                    readOnly
-                    maxLength={10} />
+                  <h1>{data ? data['name'] : null}</h1>
+                  <h1>{data ? data['price'] : null}원</h1>
+                  
+
                            <button ><Link to={"/Modify_seller/" + userid}>수정하기</Link></button>
                            <button onClick={onclick}>
                 삭제하기
@@ -143,13 +137,13 @@ const onclick = async () => {
            
                     className={regi.content_txt3} 
        
-                    value={data['content']}
+                    value={data ? data['content'] : null}
                     minLength={100} />
                 </div>
-                <img src={imageurl1} width='600px' height ='500px'/>
-                <img src={imageurl2} width='300px' height ='300px'/>
-                <img src={imageurl3} width='300px' height ='300px'/>
-                <img src={imageurl4} width='300px' height ='300px'/>
+                <img src={imageurl1 ? imageurl1 : null} width='600px' height ='500px'/>
+                <img src={imageurl2 ? imageurl2 : null} width='300px' height ='300px'/>
+                <img src={imageurl3 ? imageurl3 : null} width='300px' height ='300px'/>
+                <img src={imageurl4 ? imageurl4 : null} width='300px' height ='300px'/>
             </form>  
             <div>
         </div>
