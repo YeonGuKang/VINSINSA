@@ -146,39 +146,45 @@ const id_overlap_check = () => {
     return(
         <div>
        <section>
-    <h1>회원가입 페이지</h1>
+
+    <br></br><h1 align='center'>회원가입</h1><br></br>
   </section>
   <div className="joinsec">
       <br></br>
-      ID<br></br>
+      <h3>ID</h3>
       <input onChange={onChange_id} type="text" value={id}/>
-      &nbsp;<button onClick={id_overlap_check} value="duple"> 중복확인 </button>
+      <button onClick={id_overlap_check} value="duple"> 중복확인 </button>
       <br></br>
 
-      비밀번호<br></br>
-      <input onChange={onChange_password} type="password"  value={password}/>
-      <br></br>
+      <h3>비밀번호</h3>
+      <input onChange={onChange_password} type="password" placeholder="6자 이상 입력하세요" value={password}/><br></br>
 
-      이름  <br></br>
+      <h3>이름</h3>
       <input onChange={onChange_name} type="text" value={name}/><br></br>
 
-      생년월일<br></br>
+      <h3>생년월일</h3>
       <input onChange={onChange_birth} type="text"  placeholder="YYYYMMDD" value={birth} maxlength="8"/><br></br>
 
-      성별<br></br>
+      <h3>성별</h3>
       <input onChange={onChange_sex} type="text" placeholder="남 / 여" value={sex} maxlength="1"/><br></br>
 
-      이메일<br></br>
-      <input onChange={onChange_email} type="email" placeholder="email@gmail.com" value={email}/><br></br>
+      <h3>이메일</h3>
+      <input onChange={onChange_email} type="email" placeholder="email@naver.com" value={email}/><br></br>
 
-      주소<br></br>
-      <input onChange={onChange_address} type="text" placeholder="OO시/OO구/OO동/상세주소" value={address}/><br></br>
+      <h3>주소</h3>
+      <input onChange={onChange_address} type="text" placeholder="OO시 OO구 OO동" value={address}/><br></br>
 
-      판매자 / 구매자 입력<br></br>
-      <input onChange={onChange_state} type="text"  value={state} maxlength="3"/><br></br>
+      <h3>구분</h3>
+      <input onChange={onChange_state} type="text" placeholder="판매자 / 구매자" value={state} maxlength="3"/><br></br>
 
-  
-  <button onClick={signUp}>회원가입</button>
+      <br></br>
+      <button className="authBtn" onClick={signUp} name="Join">
+           회원가입
+      </button>
+
+
+
+  <br></br>
   </div>
                 {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
             <div>{check ? <Redirect from="/Joinform" to="/Loginform" /> : null}</div>
