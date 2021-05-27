@@ -103,8 +103,12 @@ const View_review = () => {
 
 const onclick = async () => {
 
-  await dbService.collection('board').doc('board').collection("review").doc(userid).delete()
   setcheck(true)
+  if(window.confirm("정말로 삭제하시겠습니까?")){
+      await dbService.collection('board').doc('board').collection("review").doc(userid).delete()
+
+      alert("삭제가 완료되었습니다.")
+  }
 }
     return (
       <div className={rec.wrap}> 
@@ -117,15 +121,15 @@ const onclick = async () => {
             <form className = {regi.registerform}>
                 <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
-                  <h1>상품명 : {data['title']}</h1>
-                  <h1>평점 : {data['평점']}</h1>
+                  <h1>상품명 : {data ? data['title'] : null}</h1>
+                  <h1>평점 : {data ? data['평점'] : null}</h1>
                 </div>
                 <div>
                     <textarea 
            
                     className={regi.content_txt} 
        
-                    value={data['content']}
+                    value={data ? data['content'] : null}
                     minLength={100} />
                 </div>
                 <button onClick={onclick} className = {regi.registerbtn}>
