@@ -65,9 +65,24 @@ return(
     <div className="backwrap">
     <div className="mainform">
 
-    {check ? My_info['구매목록'].map((Show)=>(
-            <li>{Show} : 배송 준비 중</li>
-      )):null }
+
+    <h2 align="center">구매 목록 조회</h2>
+    <table width="463px" height="300px" border="1px">
+      <thead>
+        <tr>
+          <th width="270px">상품명</th><th>배송 상태</th>
+        </tr>
+      </thead>
+      <tbody>
+      {check ? My_info['구매목록'].map((Show)=>(
+           <tr align="center">
+             <td>&nbsp;{Show}</td><td>배송 준비 중</td>
+           </tr>
+      )) : null}
+      </tbody>
+    </table>
+
+
 
     
       <div className="authBtns">
