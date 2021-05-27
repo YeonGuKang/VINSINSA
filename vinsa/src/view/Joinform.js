@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRoute, Redirect, useHistory } from 'react-router-dom';
 import { dbService,authService } from "../model/firebase";
-
+import "./style/Loginform.css";
 
 const Joinform = () => {
   const [init, setInit] = useState(false);
@@ -149,6 +149,7 @@ const Joinform = () => {
        <section>
     <h1>회원가입 페이지</h1>
   </section>
+  <div className="joinsec">
       <br></br>
       ID<br></br>
       <input onChange={onChange_id} type="text" value={id}/>
@@ -179,7 +180,7 @@ const Joinform = () => {
 
   
   <button onClick={signUp}>회원가입</button>
-
+  </div>
                 {/* 게시글이 작성되었나 판단해서 작성된 경우에는 redirect로 게시판 페이지로 이동 */}
             <div>{check ? <Redirect from="/Joinform" to="/Loginform" /> : null}</div>
   </div>

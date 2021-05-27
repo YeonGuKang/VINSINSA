@@ -117,18 +117,8 @@ const onclick = async () => {
             <form className = {regi.registerform}>
                 <div className = {regi.Write}>
                   {/* 제목과 내용에 변화가 있는것을 value로써 onchange로 넘겨줌 */}
-                    <input 
-           
-                    type = 'text'
-                    value={data['title']}
-                    maxLength={10} />
-                     <input 
-               
-                    type = 'text'
-                    value={data['평점']}
-                
-                    readOnly
-                    maxLength={10} />
+                  <h1>상품명 : {data['title']}</h1>
+                  <h1>평점 : {data['평점']}</h1>
                 </div>
                 <div>
                     <textarea 

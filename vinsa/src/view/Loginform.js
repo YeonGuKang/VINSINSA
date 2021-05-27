@@ -102,7 +102,7 @@ const Loginform = () => {
       <div>
         <Header></Header>
       <div className="backwrap">
-      <div className="mainform">
+      <div className="mainform2">
     
       ID<br></br>
       <input onChange={onChange_id} type="text" value={id}/>

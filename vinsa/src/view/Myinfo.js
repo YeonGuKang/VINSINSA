@@ -74,7 +74,30 @@ const [My_info, setMy_info] = useState([]);
         <Header></Header>
         <div className="backwrap">
         <div className="mainform">
-          
+        <table>
+      <thead>
+        <tr>
+          <th>Lorem</th><th>Ipsum</th><th>Dolor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+      </tbody>
+    </table>
         {IsManager ? null : <h3>아이디 : {My_info.id}</h3>}
         {IsManager ? null :<h3>이메일 :  {My_info.email}</h3>}
         {IsManager ? null :<h3>생일 :  {My_info.birth}</h3>}
