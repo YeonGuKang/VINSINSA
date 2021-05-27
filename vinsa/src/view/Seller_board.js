@@ -214,48 +214,51 @@ setlimit_boards(page_boards)
                 <div  className={noti.board_detail}>
 
                   {/* 제목 부분에 title을 불러옴 */}
-                    <div>
-                      <div className={noti.titlendate}>날짜</div>
-                      <hr size='2' color='lightgray'></hr>     
-                        {boards.map(board => 
-                        <div key={board.id} >
-                            <li>{board.createdAt}</li>
-                            <hr size='2' color='lightgray'></hr>                   
-                        </div>
-                        )}            
-                    </div>
+
 
                     {/* 마찬가지로 날짜 부분에 만든 날짜를 게시글 작성 날짜를 불러옴 */}
                     <div className={noti.board_date}>
-                        <div className={noti.titlendate}>제목</div>
+                        <div className={noti.titlendate} align='center'>제목</div>
                         <hr size='2' color='lightgray'></hr>                   
                         
                         {boards.map(board => 
                         <div className={noti.board_content} key={board.id}>
-                         <li><Link to ={"/View_board/" + board.id}>{board.name}</Link></li>                 
+                         <li align='center'><Link to ={"/View_board/" + board.id}>{board.name}</Link></li>
+                         <hr size='2' color='lightgray'></hr>
                         </div>
                        )}
                     </div>
 
                      {/* 제목 부분에 title을 불러옴 */}
                     <div>
-                      <div className={noti.titlendate}>작성자</div>
+                      <div className={noti.titlendate} align='center'>작성자</div>
                       <hr size='2' color='lightgray'></hr>     
                         {boards.map(board => 
                         <div key={board.id} >
-                            <li>{board.writer}</li>
+                            <li align='center'>{board.writer}</li>
                             <hr size='2' color='lightgray'></hr>                   
                         </div>
                         )}            
                     </div>
 
+                    <div>
+                      <div className={noti.titlendate} align='center'>날짜</div>
+                      <hr size='2' color='lightgray'></hr>
+                        {boards.map(board =>
+                        <div key={board.id} >
+                            <li align='center'>{board.createdAt}</li>
+                            <hr size='2' color='lightgray'></hr>
+                        </div>
+                        )}
+                    </div>
+
                       {/* 제목 부분에 title을 불러옴 */}
                       <div>
-                      <div className={noti.titlendate}>통과여부</div>
+                      <div className={noti.titlendate} align='center'>통과여부</div>
                       <hr size='2' color='lightgray'></hr>     
                         {boards.map(board => 
                         <div key={board.id} >
-                            <li>{board.admit}</li>
+                            <li align='center'>{board.admit}</li>
                             <hr size='2' color='lightgray'></hr>                   
                         </div>
                         )}            

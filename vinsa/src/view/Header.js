@@ -93,7 +93,7 @@ const Header = () => {
                     <li><Link to="/Category">Category</Link></li>
                     {Isseller ? <li><Link to="/view_sell">판매목록조회</Link></li> : <li><Link to={"/view_buy"}>구매목록조회</Link></li>}
                      <li><Link to="/Review">리뷰</Link></li>
-                    {Isseller ? <li><Link to="/Seller_board">판매자 게시판</Link></li> : null}
+                    {IsManager||Isseller ? <li><Link to="/Seller_board">판매자 게시판</Link></li> : null}
                     {isLoggedIn ? IsManager ? <li><Link to={"/Myinfo"+"/"+mystate}>유저정보 조회하기</Link></li> : <li><Link to={"/Myinfo"+"/"+mystate}>내 정보 조회하기</Link></li> : null}
                 </ul>
             </div>
